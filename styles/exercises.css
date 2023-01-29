@@ -1,0 +1,250 @@
+@charset "UTF-8";
+.exercises-main {
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  position: relative;
+}
+.exercises-main .exercises-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.exercises-main .exercises-wrapper .searchbar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exercises-main .exercises-wrapper .searchbar .search-bar {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 3rem;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid #8dc63f;
+  outline: none;
+  resize: none;
+  background-color: #262626;
+  color: #e5e5e0;
+}
+.exercises-main .exercises-wrapper .searchbar .placeholder {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 3rem;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.7s;
+  color: #e5e5e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exercises-main .exercises-wrapper .searchbar .placeholder::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-bottom: 0.1px solid #8dc63f;
+  transition: 0.5s;
+}
+.exercises-main .exercises-wrapper .searchbar .placeholder span {
+  font-size: 4rem;
+  transition: 0.7s;
+  color: #e5e5e0;
+}
+.exercises-main .exercises-wrapper .searchbar .placeholder img {
+  width: 4rem;
+  transition: 0.7s;
+  align-self: center;
+  height: 100%;
+}
+.exercises-main .exercises-wrapper .searchbar input:focus + .placeholder,
+.exercises-main .exercises-wrapper .searchbar input:valid + .placeholder {
+  transform: translateY(-6rem);
+  opacity: 50%;
+}
+.exercises-main .exercises-wrapper .searchbar input:focus + .placeholder::after,
+.exercises-main .exercises-wrapper .searchbar input:valid + .placeholder::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.1px solid #8dc63f;
+  transition: 0.5s;
+}
+.exercises-main .exercises-wrapper .filter-wrapper {
+  width: 100%;
+  margin: 4rem;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .nadpis {
+  width: 100%;
+  text-align: center;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .nadpis span {
+  color: #e5e5e0;
+  font-size: 4rem;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .filter-muscle,
+.exercises-main .exercises-wrapper .filter-wrapper .filter-equipment {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .filter-muscle .filter-button,
+.exercises-main .exercises-wrapper .filter-wrapper .filter-equipment .filter-button {
+  width: 30%;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .filter-muscle .filter-button .radio-input,
+.exercises-main .exercises-wrapper .filter-wrapper .filter-equipment .filter-button .radio-input {
+  display: none;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .filter-muscle .filter-button .radio-input:checked + .radio-label,
+.exercises-main .exercises-wrapper .filter-wrapper .filter-equipment .filter-button .radio-input:checked + .radio-label {
+  background-color: #8dc63f;
+  color: #e5e5e0;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .filter-muscle .filter-button .radio-input:checked + .radio-label::before,
+.exercises-main .exercises-wrapper .filter-wrapper .filter-equipment .filter-button .radio-input:checked + .radio-label::before {
+  height: 1.6rem;
+  width: 1.6rem;
+  border: 10px solid #e5e5e0;
+  background-color: #8dc63f;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .filter-muscle .filter-button .radio-label,
+.exercises-main .exercises-wrapper .filter-wrapper .filter-equipment .filter-button .radio-label {
+  cursor: pointer;
+  position: relative;
+  color: #8dc63f;
+  text-transform: uppercase;
+  font-size: 2rem;
+  border: 1px solid #8dc63f;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exercises-main .exercises-wrapper .filter-wrapper .filter-muscle .filter-button .radio-label::before,
+.exercises-main .exercises-wrapper .filter-wrapper .filter-equipment .filter-button .radio-label::before {
+  content: "";
+  height: 3rem;
+  width: 3rem;
+  border: 3px solid #8dc63f;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper {
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list {
+  padding: 0rem;
+  background-color: #262626;
+  width: 100%;
+  position: relative;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns {
+  background-color: #303030;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: 1px solid #e5e5e0;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr .name {
+  text-align: left;
+  color: #e5e5e0;
+  cursor: pointer;
+  padding: 3rem 1rem;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr .equipment,
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr .muscle {
+  color: #e5e5e0;
+  cursor: pointer;
+  padding: 3rem 0rem;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr .th-sort-asc::after {
+  content: "▴";
+  margin-left: 5px;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr .th-sort-desc::after {
+  content: "▾";
+  margin-left: 5px;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr .th-sort-desc,
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr .th-sort-asc {
+  background-color: #262626;
+  border-bottom: 2px solid #8dc63f;
+  color: #8dc63f;
+}
+@media (min-width: 1200px) {
+  .exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns tr {
+    grid-template-columns: 60% 20% 20%;
+  }
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr {
+  height: 100px;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr:nth-child(even) {
+  background-color: #303030;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr td .item-container {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  padding: 3rem 0rem;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr td .item-container .exercise-name {
+  color: #e5e5e0;
+  transition: 0.5s;
+  font-size: 3.5rem;
+  margin-left: 1rem;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr td .item-container .exercise-equipment,
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr td .item-container .exercise-target {
+  color: #e5e5e0;
+  opacity: 50%;
+  transition: 0.5s;
+  text-align: center;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr td .item-container:hover {
+  transition: 0.5s;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr td .item-container:hover .exercise-name {
+  color: #8dc63f;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper::-webkit-scrollbar {
+  width: 0.2em;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.exercises-main .exercises-wrapper .exercises-list-wrapper::-webkit-scrollbar-thumb {
+  background-color: #8dc63f;
+  outline: none;
+}
+@media (min-width: 1200px) {
+  .exercises-main {
+    padding: 5rem 15rem;
+  }
+}

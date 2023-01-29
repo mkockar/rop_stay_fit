@@ -1,0 +1,194 @@
+header {
+  background-color: #262626;
+  border-bottom: 1px solid #e5e5e0;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 30vh;
+}
+header .header-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* ANIMACIA */
+}
+header .header-container .logo img {
+  position: relative;
+  z-index: 4;
+  margin: 0;
+  width: 30rem;
+  margin-left: 2rem;
+}
+header .header-container .burger-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 9rem;
+  height: 9rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  margin-right: 2rem;
+  z-index: 4;
+}
+header .header-container .burger-menu .burger-menu-btn-u,
+header .header-container .burger-menu .burger-menu-btn-m,
+header .header-container .burger-menu .burger-menu-btn-d {
+  width: 50%;
+  height: 0.6rem;
+  background-color: #e5e5e0;
+  border-radius: 2px;
+  transition: all 0.5s ease-in-out;
+}
+header .header-container .burger-menu .burger-menu-btn-u,
+header .header-container .burger-menu .burger-menu-btn-d {
+  position: absolute;
+}
+header .header-container .burger-menu .burger-menu-btn-u {
+  transform: translateY(-16px);
+}
+header .header-container .burger-menu .burger-menu-btn-d {
+  transform: translateY(16px);
+}
+header .header-container .burger-menu.open .burger-menu-btn-m {
+  background-color: transparent;
+}
+header .header-container .burger-menu.open .burger-menu-btn-u {
+  /*translate(35px, -35px);*/
+  transform: translateX(35px);
+  transform: translateY(-35px);
+  transform: rotate(45deg);
+  background-color: #8dc63f;
+}
+header .header-container .burger-menu.open .burger-menu-btn-d {
+  transform: translateX(35px);
+  transform: translateY(35px);
+  transform: rotate(-45deg);
+  background-color: #8dc63f;
+}
+header .nav-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  position: absolute;
+  z-index: 1;
+  background-color: #262626;
+  width: 100vw;
+  transition: 0.5s;
+  transform: translateX(-100%);
+  top: 100%;
+  padding: 8rem 0;
+  border-bottom: 1px solid #e5e5e0;
+}
+header .nav-links-container .nav-links {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+  padding: 0px;
+}
+header .nav-links-container .nav-links li {
+  text-align: center;
+  display: flex;
+}
+header .nav-links-container .nav-links li a {
+  text-decoration: none;
+  color: #e5e5e0;
+  position: relative;
+  letter-spacing: 2px;
+}
+header .nav-links-container .nav-links li a::after {
+  content: "";
+  position: absolute;
+  background: transparent;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: -0.2px;
+  transition: 1s;
+  display: block;
+}
+header .nav-links-container .nav-links li a:hover {
+  transition: 0.5s;
+}
+header .nav-links-container .nav-links li a:hover:hover:after {
+  width: 100%;
+  background-color: #8dc63f;
+}
+header .nav-links-container.open {
+  top: 100%;
+  transform: translateX(0);
+}
+header .background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  filter: brightness(20%);
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (min-width: 1200px) {
+  header {
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+  }
+  header .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 16rem;
+    padding: 5rem;
+    position: relative;
+  }
+  header .header-container .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+  }
+  header .header-container .logo img {
+    margin: 0;
+    width: 30rem;
+  }
+  header .header-container .burger-menu {
+    position: absolute;
+    display: none;
+  }
+  header .nav-links-container,
+header .nav-links-container.open {
+    height: 65px;
+    align-items: flex-end;
+    position: relative;
+    background-color: transparent;
+    justify-content: flex-end;
+    margin: 0 5rem;
+    width: 100%;
+    transition: 0s;
+    transform: translateX(0);
+    top: 0;
+    padding: 0 0;
+    border-bottom: none;
+  }
+  header .nav-links-container .nav-links,
+header .nav-links-container.open .nav-links {
+    flex-direction: row;
+    gap: 4rem;
+  }
+  header .nav-links-container .nav-links li,
+header .nav-links-container.open .nav-links li {
+    font-size: 2.5rem;
+  }
+}

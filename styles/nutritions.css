@@ -1,0 +1,213 @@
+@charset "UTF-8";
+.nutritions-main {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  position: relative;
+}
+.nutritions-main .groceries-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.nutritions-main .groceries-wrapper .searchbar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nutritions-main .groceries-wrapper .searchbar .search-bar {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 3rem;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid #8dc63f;
+  outline: none;
+  resize: none;
+  background-color: #262626;
+  color: #e5e5e0;
+}
+.nutritions-main .groceries-wrapper .searchbar .placeholder {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 3rem;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.7s;
+  color: #e5e5e0;
+}
+.nutritions-main .groceries-wrapper .searchbar .placeholder::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-bottom: 0.1px solid #8dc63f;
+  transition: 0.5s;
+}
+.nutritions-main .groceries-wrapper .searchbar .placeholder span {
+  font-size: 4rem;
+  transition: 0.7s;
+  color: #e5e5e0;
+}
+.nutritions-main .groceries-wrapper .searchbar .placeholder img {
+  width: 4rem;
+  transition: 0.7s;
+  align-self: center;
+  height: 100%;
+}
+.nutritions-main .groceries-wrapper .searchbar input:focus + .placeholder,
+.nutritions-main .groceries-wrapper .searchbar input:valid + .placeholder {
+  transform: translateY(-6rem);
+  opacity: 50%;
+}
+.nutritions-main .groceries-wrapper .searchbar input:focus + .placeholder::after,
+.nutritions-main .groceries-wrapper .searchbar input:valid + .placeholder::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.1px solid #8dc63f;
+  transition: 0.5s;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper {
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list {
+  padding: 0rem;
+  background-color: #262626;
+  width: 100%;
+  position: relative;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container {
+  background-color: #303030;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: 1px solid #e5e5e0;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .name,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .druhPotraviny {
+  color: #e5e5e0;
+  cursor: pointer;
+  padding: 3rem 0rem;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .kalorie,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .bielkoviny,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .tuky,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .sacharidy {
+  visibility: hidden;
+  color: #e5e5e0;
+  cursor: pointer;
+  padding: 3rem 0rem;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .th-sort-asc::after {
+  content: "▴";
+  margin-left: 5px;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .th-sort-desc::after {
+  content: "▾";
+  margin-left: 5px;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .th-sort-desc,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .th-sort-asc {
+  background-color: #262626;
+  border-bottom: 2px solid #8dc63f;
+  color: #8dc63f;
+}
+@media (min-width: 1200px) {
+  .nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr {
+    grid-template-columns: 40% 10% 10% 10% 10% 10%;
+  }
+  .nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .kalorie,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .bielkoviny,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .tuky,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list .filter-container tr .sacharidy {
+    visibility: visible;
+  }
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr:nth-child(even) {
+  background-color: #303030;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td {
+  height: 100px;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container {
+  display: grid;
+  grid-template-columns: 40% 10% 10% 10% 10% 10%;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  padding: 3rem 0rem;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .product-name {
+  color: #e5e5e0;
+  transition: 0.5s;
+  font-size: 3.5rem;
+  margin-left: 1rem;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .type {
+  color: #e5e5e0;
+  opacity: 50%;
+  transition: 0.5s;
+  text-align: center;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .kcal,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .protein,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .fat,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .carbohydrates {
+  visibility: hidden;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container:hover {
+  transition: 0.5s;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container:hover .product-name {
+  color: #8dc63f;
+}
+@media (min-width: 1200px) {
+  .nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .kcal,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .protein,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .fat,
+.nutritions-main .groceries-wrapper .groceries-list-wrapper .groceries-list tbody tr td .item-container .carbohydrates {
+    visibility: visible;
+    color: #e5e5e0;
+    opacity: 50%;
+    transition: 0.5s;
+    text-align: center;
+  }
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper::-webkit-scrollbar {
+  width: 0.2em;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.nutritions-main .groceries-wrapper .groceries-list-wrapper::-webkit-scrollbar-thumb {
+  background-color: #8dc63f;
+  outline: none;
+}
+@media (min-width: 1200px) {
+  .nutritions-main {
+    padding: 5rem 15rem;
+  }
+}
+
+.hide {
+  display: none;
+}

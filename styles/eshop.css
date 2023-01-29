@@ -1,0 +1,200 @@
+.eshop {
+  position: relative;
+  width: 100%;
+  padding: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.eshop .container {
+  padding: 10rem 0;
+}
+.eshop .container .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+.eshop .container .cards .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 350px;
+  border: 1px solid #8dc63f;
+  border-radius: 5px;
+  background-color: #303030;
+  transition: 0.5s;
+}
+.eshop .container .cards .card .inside {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+.eshop .container .cards .card .inside .top-strip {
+  width: 100%;
+  height: 40px;
+  border-radius: 0px 0px 5px 5px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.eshop .container .cards .card .inside .content {
+  padding: 0 2rem 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  letter-spacing: 0.5rem;
+}
+.eshop .container .cards .card .inside .content .icon img {
+  width: 6rem;
+}
+.eshop .container .cards .card .inside .content .name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e5e5e0;
+}
+.eshop .container .cards .card .inside .content .name h1 {
+  text-align: center;
+  position: relative;
+}
+.eshop .container .cards .card .inside .content .name h1::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #8dc63f;
+  height: 2px;
+  width: 100%;
+  transition: 0.5s;
+}
+.eshop .container .cards .card .inside .content .name .price {
+  opacity: 30%;
+  font-size: 2.5rem;
+}
+.eshop .container .cards .card .inside .content .list {
+  padding: 0 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  color: #e5e5e0;
+}
+.eshop .container .cards .card .inside .content .list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.eshop .container .cards .card .inside .content .list ul li {
+  border-top: 1px solid #262626;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.eshop .container .cards .card .inside .content .list ul li img {
+  width: 3rem;
+}
+.eshop .container .cards .card .inside .content .list .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.eshop .container .cards .card .inside .content .list .button div {
+  border: 1px solid #8dc63f;
+  border-radius: 5px;
+  text-align: center;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.eshop .container .cards .card:hover {
+  transform: translateY(-0.5rem);
+}
+.eshop .container .cards .card:hover .inside .top-strip {
+  opacity: 1;
+  transition: 0.5s;
+}
+.eshop .container .cards #bronze .inside .top-strip {
+  background-color: rgb(205, 127, 50);
+}
+.eshop .container .cards #bronze .inside .content .list .button:hover div {
+  background-color: rgb(205, 127, 50);
+  color: #303030;
+  transition: 0.5s;
+}
+.eshop .container .cards #bronze:hover {
+  border-color: rgb(205, 127, 50);
+  transition: 0.5s;
+}
+.eshop .container .cards #bronze:hover .inside .content .name h1::after {
+  background-color: rgb(205, 127, 50);
+  transition: 0.5s;
+}
+.eshop .container .cards #bronze:hover .inside .content .list .button div {
+  border-color: rgb(205, 127, 50);
+  transition: 0.5s;
+}
+.eshop .container .cards #platinum .inside .top-strip {
+  background-color: #e5e4e2;
+}
+.eshop .container .cards #platinum .inside .content .list .button:hover div {
+  background-color: #e5e4e2;
+  border-color: #e5e4e2;
+  color: #303030;
+  transition: 0.5s;
+}
+.eshop .container .cards #platinum:hover {
+  border-color: #e5e4e2;
+  transition: 0.5s;
+}
+.eshop .container .cards #platinum:hover .content .name h1::after {
+  background-color: #e5e4e2;
+}
+.eshop .container .cards #platinum:hover .content .list .button div {
+  border-color: #e5e4e2;
+  transition: 0.5s;
+}
+.eshop .container .cards #gold .inside .top-strip {
+  background-color: #ffd700;
+}
+.eshop .container .cards #gold .inside .content .list .button:hover div {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: #303030;
+  transition: 0.5s;
+}
+.eshop .container .cards #gold:hover {
+  border-color: #ffd700;
+  transition: 0.5s;
+}
+.eshop .container .cards #gold:hover .content .name h1::after {
+  background-color: #ffd700;
+}
+.eshop .container .cards #gold:hover .content .list .button div {
+  border-color: #ffd700;
+  transition: 0.5s;
+}
+@media (min-width: 1250px) {
+  .eshop .container .cards #platinum {
+    transform: translateY(-5rem);
+  }
+  .eshop .container .cards #platinum:hover {
+    transform: translateY(-5.5rem);
+  }
+}

@@ -1,0 +1,247 @@
+@import "colours.scss";
+
+.nutritions-main {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  position: relative;
+  .groceries-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    //max-width: 600px;
+    .searchbar {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .search-bar {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 3rem;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 1px solid $outline;
+        outline: none;
+        resize: none;
+        background-color: $main;
+        color: $lightgray;
+        //position: relative;
+      }
+      .placeholder {
+        position: absolute;
+        left: 0;
+        padding: 5px 0;
+        font-size: 3rem;
+        margin: 10px 0;
+        pointer-events: none;
+        transition: 0.7s;
+        color: $lightgray;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          border-bottom: 0.1px solid $outline;
+          transition: 0.5s;
+        }
+        span {
+          font-size: 4rem;
+          transition: 0.7s;
+          color: $lightgray;
+        }
+        img {
+          width: 4rem;
+          transition: 0.7s;
+          align-self: center;
+          height: 100%;
+        }
+      }
+
+      input:focus + .placeholder,
+      input:valid + .placeholder {
+        transform: translateY(-6rem);
+        opacity: 50%;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 6px;
+          left: 0;
+          width: 100%;
+          border-bottom: 0.1px solid $outline;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .groceries-list-wrapper {
+      width: 100%;
+      max-height: 80vh;
+      overflow: hidden;
+      overflow-y: scroll;
+      .groceries-list {
+        padding: 0rem;
+        background-color: $main;
+        width: 100%;
+        position: relative;
+        .filter-container {
+          background-color: $darkgray;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          border: 1px solid $lightgray;
+          tr {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            text-align: center;
+            .name,
+            .druhPotraviny {
+              color: $lightgray;
+              cursor: pointer;
+              padding: 3rem 0rem;
+            }
+            .kalorie,
+            .bielkoviny,
+            .tuky,
+            .sacharidy {
+              visibility: hidden;
+              color: $lightgray;
+              cursor: pointer;
+              padding: 3rem 0rem;
+            }
+
+            .th-sort-asc::after {
+              content: "\25b4";
+              margin-left: 5px;
+            }
+            .th-sort-desc::after {
+              content: "\25be";
+              margin-left: 5px;
+            }
+
+            .th-sort-desc,
+            .th-sort-asc {
+              background-color: $main;
+              border-bottom: 2px solid $outline;
+              color: $outline;
+            }
+          }
+
+          @media (min-width: 1200px) {
+            tr {
+              grid-template-columns: 40% 10% 10% 10% 10% 10%;
+              .kalorie,
+              .bielkoviny,
+              .tuky,
+              .sacharidy {
+                visibility: visible;
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            &:nth-child(even) {
+              background-color: $darkgray;
+            }
+            td {
+              height: 100px;
+              .item-container {
+                display: grid;
+                grid-template-columns: 40% 10% 10% 10% 10% 10%;
+                justify-content: space-between;
+                align-items: center;
+                text-decoration: none;
+                padding: 3rem 0rem;
+                // #name {
+                //   text-align: left;
+                // }
+                .product-name {
+                  color: $lightgray;
+                  transition: 0.5s;
+                  font-size: 3.5rem;
+                  margin-left: 1rem;
+                }
+                .type {
+                  color: $lightgray;
+                  opacity: 50%;
+                  transition: 0.5s;
+                  text-align: center;
+                }
+
+                .kcal,
+                .protein,
+                .fat,
+                .carbohydrates {
+                  visibility: hidden;
+                }
+
+                &:hover {
+                  transition: 0.5s;
+                  .product-name {
+                    color: $outline;
+                  }
+                }
+                @media (min-width: 1200px) {
+                  .kcal,
+                  .protein,
+                  .fat,
+                  .carbohydrates {
+                    visibility: visible;
+                    color: $lightgray;
+                    opacity: 50%;
+                    transition: 0.5s;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &::-webkit-scrollbar {
+        width: 0.2em;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $outline;
+        outline: none;
+      }
+    }
+  }
+
+  // .up-button {
+  //   position: absolute;
+  //   top: 50%;
+  //   right: 20px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   a {
+  //     border: 1px solid $outline;
+  //     border-radius: 50%;
+  //     padding: 2rem;
+  //     img {
+  //       width: 3rem;
+  //       transform: rotate(180deg);
+  //     }
+  //   }
+  // }
+
+  @media (min-width: 1200px) {
+    padding: 5rem 15rem;
+  }
+}
+
+.hide {
+  display: none;
+}

@@ -1,0 +1,49 @@
+@import "colours.scss";
+
+footer {
+  padding: 2rem;
+  background-color: $darkgray;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    .links {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        li {
+          .link {
+            .icon {
+              width: 4rem;
+              transition: 0.7s;
+            }
+          }
+          &:hover {
+            transition: 0.7s;
+            .link {
+              img {
+                transform: scale(1.2);
+              }
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      .made-by {
+        text-align: center;
+        color: $lightgray;
+      }
+    }
+  }
+}

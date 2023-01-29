@@ -1,0 +1,87 @@
+.services {
+  position: relative;
+  width: 100%;
+  padding: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #262626;
+}
+.services .cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.services .cards ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0;
+}
+.services .cards ul li {
+  min-height: 300px;
+  width: 45%;
+}
+.services .cards ul li .card {
+  border: 1px solid #8dc63f;
+  padding: 5rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  background-color: #262626;
+  height: 100%;
+  transition: 0.7s;
+}
+.services .cards ul li .card:hover {
+  transform: translateY(-1.5rem);
+  transition: 0.5s;
+}
+.services .cards ul li .card:hover .overlay {
+  display: block;
+  filter: brightness(30%);
+  transition: 0.5s;
+}
+.services .cards ul li .card:hover h1 {
+  color: #e5e5e0;
+  transition: 0.5s;
+}
+.services .cards ul li .card .overlay {
+  position: absolute;
+  filter: brightness(20%);
+  transition: 0.7s;
+}
+.services .cards ul li .card .icon {
+  padding-bottom: 10px;
+  position: relative;
+  filter: invert(100%);
+  width: 50px;
+}
+.services .cards ul li .card h1 {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  letter-spacing: 0.8rem;
+  color: #e5e5e0;
+}
+@media (max-width: 899px) {
+  .services .cards ul {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .services .cards ul li {
+    width: 100%;
+    min-height: 100%;
+  }
+}

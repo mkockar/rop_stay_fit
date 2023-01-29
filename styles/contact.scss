@@ -1,0 +1,235 @@
+@import "colours.scss";
+
+.kontakt {
+  position: relative;
+  padding: 50px 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .kontakt-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 30px;
+    gap: 10rem;
+
+    .kontakt-info {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      .container {
+        display: flex;
+        padding: 20px 0;
+        position: relative;
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center;
+        img {
+          width: 8rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          filter: invert(80%);
+        }
+        .text {
+          display: flex;
+          font-size: 2.4rem;
+          flex-direction: column;
+          font-weight: 300;
+          color: $lightgray;
+          .name {
+            font-weight: 600;
+          }
+          .info {
+            color: $lightgray;
+          }
+        }
+      }
+    }
+
+    .form-container {
+      //width: 600px;
+      width: 100%;
+      padding: 40px;
+      background-color: $darkgray;
+      border-radius: 5px;
+      border: 2px solid $outline;
+      .contact-header {
+        h1 {
+          font-size: 4rem;
+          text-align: center;
+          //letter-spacing: 0.8rem;
+          color: $lightgray;
+        }
+      }
+      .form {
+        .inputBox {
+          position: relative;
+          width: 100%;
+          margin-bottom: 10px;
+          padding-top: 40px;
+          input,
+          textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 2rem;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid $main;
+            outline: none;
+            resize: none;
+            background-color: $darkgray;
+            color: $lightgray;
+            font-family: inherit;
+          }
+          .label {
+            display: inline-block;
+            position: absolute;
+            left: 5px;
+            bottom: 0;
+            padding: 5px 0;
+            font-size: 2rem;
+            margin: 10px 0;
+            pointer-events: none;
+            transition: 0.7s;
+            color: $lightgray;
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              border-bottom: 0.1px solid $outline;
+              transition: 0.2s;
+            }
+          }
+
+          .error-icon,
+          .success-icon {
+            position: absolute;
+            width: 3rem;
+            top: 40px;
+            right: 5px;
+            visibility: hidden;
+          }
+
+          .error-msg {
+            position: absolute;
+            left: 5px;
+            bottom: -30px;
+            color: $lightgray;
+            visibility: hidden;
+          }
+
+          input:focus ~ span,
+          input:valid ~ span {
+            transform: translateY(-3.5rem);
+            opacity: 50%;
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 6px;
+              left: 0;
+              width: 100%;
+              border-bottom: 0.1px solid $outline;
+              transition: 0.5s;
+            }
+          }
+
+          textarea:focus ~ span,
+          textarea:valid ~ span {
+            transform: translateY(-160%);
+            opacity: 50%;
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 6px;
+              left: 0;
+              width: 100%;
+              border-bottom: 0.1px solid $outline;
+              //transform: translateX(100%);
+              transition: 0.5s;
+            }
+          }
+
+          input[type="submit"] {
+            //letter-spacing: 0.5rem;
+            color: $lightgray;
+            font-size: 2.5rem;
+            border-radius: 5px;
+            border: 1px solid $outline;
+            transition: 1s;
+            width: 100%;
+            cursor: pointer;
+            font-family: inherit;
+            display: block;
+            padding: 1rem;
+            &:hover,
+            &:active {
+              transition: 0.5s;
+              background-color: $main;
+              //color: $darkgray;
+            }
+          }
+        }
+        .success-msg{
+          text-align: center;
+          font-size: 3rem;
+          color: $outline;
+          visibility: hidden;
+        }
+
+        .success-msg.success{
+          visibility: visible;
+        }
+        
+        .inputBox.success {
+          input,
+          textarea {
+            border-color: $outline;
+          }
+          .success-icon {
+            visibility: visible;
+          }
+        }
+        .inputBox.error {
+          input,
+          textarea {
+            border-color: #e74c3c;
+          }
+          .error-icon {
+            visibility: visible;
+          }
+          .error-msg {
+            visibility: visible;
+            color: #e74c3c;
+          }
+        }
+      }
+
+      @media (min-width: 1200px){
+        width: 40%;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 2rem;
+    .kontakt-box {
+      flex-direction: column-reverse;
+       .form-container {
+         width: 100%;
+       }
+    }
+  }
+
+  // @media (max-width: 600px) {
+  //   padding: 50px 5px;
+  // }
+}

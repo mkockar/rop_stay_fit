@@ -1,0 +1,209 @@
+.kontakt {
+  position: relative;
+  padding: 50px 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.kontakt .kontakt-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 30px;
+  gap: 10rem;
+}
+.kontakt .kontakt-box .kontakt-info {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.kontakt .kontakt-box .kontakt-info .container {
+  display: flex;
+  padding: 20px 0;
+  position: relative;
+  flex-direction: row;
+  gap: 4rem;
+  align-items: center;
+}
+.kontakt .kontakt-box .kontakt-info .container img {
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: invert(80%);
+}
+.kontakt .kontakt-box .kontakt-info .container .text {
+  display: flex;
+  font-size: 2.4rem;
+  flex-direction: column;
+  font-weight: 300;
+  color: #e5e5e0;
+}
+.kontakt .kontakt-box .kontakt-info .container .text .name {
+  font-weight: 600;
+}
+.kontakt .kontakt-box .kontakt-info .container .text .info {
+  color: #e5e5e0;
+}
+.kontakt .kontakt-box .form-container {
+  width: 100%;
+  padding: 40px;
+  background-color: #303030;
+  border-radius: 5px;
+  border: 2px solid #8dc63f;
+}
+.kontakt .kontakt-box .form-container .contact-header h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: #e5e5e0;
+}
+.kontakt .kontakt-box .form-container .form .inputBox {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-top: 40px;
+}
+.kontakt .kontakt-box .form-container .form .inputBox input,
+.kontakt .kontakt-box .form-container .form .inputBox textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 2rem;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 2px solid #262626;
+  outline: none;
+  resize: none;
+  background-color: #303030;
+  color: #e5e5e0;
+  font-family: inherit;
+}
+.kontakt .kontakt-box .form-container .form .inputBox .label {
+  display: inline-block;
+  position: absolute;
+  left: 5px;
+  bottom: 0;
+  padding: 5px 0;
+  font-size: 2rem;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.7s;
+  color: #e5e5e0;
+}
+.kontakt .kontakt-box .form-container .form .inputBox .label::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-bottom: 0.1px solid #8dc63f;
+  transition: 0.2s;
+}
+.kontakt .kontakt-box .form-container .form .inputBox .error-icon,
+.kontakt .kontakt-box .form-container .form .inputBox .success-icon {
+  position: absolute;
+  width: 3rem;
+  top: 40px;
+  right: 5px;
+  visibility: hidden;
+}
+.kontakt .kontakt-box .form-container .form .inputBox .error-msg {
+  position: absolute;
+  left: 5px;
+  bottom: -30px;
+  color: #e5e5e0;
+  visibility: hidden;
+}
+.kontakt .kontakt-box .form-container .form .inputBox input:focus ~ span,
+.kontakt .kontakt-box .form-container .form .inputBox input:valid ~ span {
+  transform: translateY(-3.5rem);
+  opacity: 50%;
+}
+.kontakt .kontakt-box .form-container .form .inputBox input:focus ~ span::after,
+.kontakt .kontakt-box .form-container .form .inputBox input:valid ~ span::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.1px solid #8dc63f;
+  transition: 0.5s;
+}
+.kontakt .kontakt-box .form-container .form .inputBox textarea:focus ~ span,
+.kontakt .kontakt-box .form-container .form .inputBox textarea:valid ~ span {
+  transform: translateY(-160%);
+  opacity: 50%;
+}
+.kontakt .kontakt-box .form-container .form .inputBox textarea:focus ~ span::after,
+.kontakt .kontakt-box .form-container .form .inputBox textarea:valid ~ span::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.1px solid #8dc63f;
+  transition: 0.5s;
+}
+.kontakt .kontakt-box .form-container .form .inputBox input[type=submit] {
+  color: #e5e5e0;
+  font-size: 2.5rem;
+  border-radius: 5px;
+  border: 1px solid #8dc63f;
+  transition: 1s;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  display: block;
+  padding: 1rem;
+}
+.kontakt .kontakt-box .form-container .form .inputBox input[type=submit]:hover, .kontakt .kontakt-box .form-container .form .inputBox input[type=submit]:active {
+  transition: 0.5s;
+  background-color: #262626;
+}
+.kontakt .kontakt-box .form-container .form .success-msg {
+  text-align: center;
+  font-size: 3rem;
+  color: #8dc63f;
+  visibility: hidden;
+}
+.kontakt .kontakt-box .form-container .form .success-msg.success {
+  visibility: visible;
+}
+.kontakt .kontakt-box .form-container .form .inputBox.success input,
+.kontakt .kontakt-box .form-container .form .inputBox.success textarea {
+  border-color: #8dc63f;
+}
+.kontakt .kontakt-box .form-container .form .inputBox.success .success-icon {
+  visibility: visible;
+}
+.kontakt .kontakt-box .form-container .form .inputBox.error input,
+.kontakt .kontakt-box .form-container .form .inputBox.error textarea {
+  border-color: #e74c3c;
+}
+.kontakt .kontakt-box .form-container .form .inputBox.error .error-icon {
+  visibility: visible;
+}
+.kontakt .kontakt-box .form-container .form .inputBox.error .error-msg {
+  visibility: visible;
+  color: #e74c3c;
+}
+@media (min-width: 1200px) {
+  .kontakt .kontakt-box .form-container {
+    width: 40%;
+  }
+}
+@media (max-width: 1200px) {
+  .kontakt {
+    padding: 2rem;
+  }
+  .kontakt .kontakt-box {
+    flex-direction: column-reverse;
+  }
+  .kontakt .kontakt-box .form-container {
+    width: 100%;
+  }
+}

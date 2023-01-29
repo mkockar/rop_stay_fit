@@ -1,0 +1,184 @@
+@import "colours.scss";
+
+.potravina {
+  padding: 5rem 1rem;
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    flex-direction: column;
+    .content-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8rem;
+      .back-button {
+        border: 1px solid $lightgray;
+        border-radius: 5px;
+        text-align: center;
+        padding: 1rem;
+        transition:.5s;
+        a {
+          text-decoration: none;
+          color: $lightgray;
+          font-size: 2.5rem;
+        }
+
+        &:hover{
+          transition: .5s;
+          background-color: $darkgray;
+          border-color: $outline;
+        }
+      }
+      .content-start {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        .name {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          h1 {
+            color: $lightgray;
+            text-transform: uppercase;
+            font-size: 6rem;
+          }
+          .type{
+            color: $lightgray;
+            opacity: 20%;
+            font-size: 2.6rem;
+          }
+        }
+        .reminder {
+          border: 1px solid $lightgray;
+          padding: 1.5rem;
+          border-radius: 5px;
+          span {
+            color: $lightgray;
+          }
+        }
+      }
+    }
+    .info-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      // flex-wrap: wrap;
+      gap: 10rem;
+      .basic-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        max-width: 600px;
+        // padding: 2rem;
+        .photo {
+          img {
+            border-radius: 5px;
+            width: 100%;
+          }
+        }
+        .nutritions-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0px;
+            width: 100%;
+            li {
+              border: 1px solid $outline;
+              list-style-type: none;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              padding: 3rem;
+              width: 25%;
+              border-radius: 5px;
+              .hodnota {
+                color: $lightgray;
+              }
+              div {
+                color: $outline;
+              }
+            }
+          }
+        }
+      }
+      .extended-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6rem;
+        max-width: 600px;
+        border: 1px solid $outline;
+        padding: 2rem;
+        border-radius: 5px;
+        .name {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          h1{
+            color: $lightgray;
+          }
+        }
+        .extended-nutritions-wrapper {
+          width: 100%;
+          .extended-nutritions-list {
+            padding: 0;
+            list-style-type: none;
+            color: $lightgray;
+            .extended-nutritions-list-item {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 1rem;
+              padding: 2rem;
+              border-top: 1px solid $darkgray;
+              &:nth-child(odd) {
+                background-color: $darkgray;
+              }
+              .extended-nutritions-dash {
+                width: 3rem;
+              }
+              .mineral-wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                .mineral {
+                }
+                .value {
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    padding: 5rem;
+  }
+}
