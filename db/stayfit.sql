@@ -1,33 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Hostiteľ: 127.0.0.1
--- Čas generovania: Út 24.Jan 2023, 23:46
--- Verzia serveru: 10.4.24-MariaDB
--- Verzia PHP: 8.1.6
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Databáza: `stayfit`
---
 CREATE DATABASE IF NOT EXISTS `stayfit` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_slovak_ci;
 USE `stayfit`;
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `balicek`
---
 
 CREATE TABLE `balicek` (
   `IDbalicek` int(11) NOT NULL,
@@ -35,40 +12,24 @@ CREATE TABLE `balicek` (
   `cena` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `balicek`
---
 
 INSERT INTO `balicek` (`IDbalicek`, `nazovBalicka`, `cena`) VALUES
 (1, 'Zlatý balíček', 200),
 (2, 'Platinový balíček', 300),
 (3, 'Bronzový balíček', 100);
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `baliceksluzby`
---
 
 CREATE TABLE `baliceksluzby` (
   `IDbalicek` int(11) NOT NULL,
   `IDsluzba` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `cvikvybavenie`
---
 
 CREATE TABLE `cvikvybavenie` (
   `IDcvik` int(11) NOT NULL,
   `IDvybavenie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `cvikvybavenie`
---
 
 INSERT INTO `cvikvybavenie` (`IDcvik`, `IDvybavenie`) VALUES
 (1, 1),
@@ -87,11 +48,6 @@ INSERT INTO `cvikvybavenie` (`IDcvik`, `IDvybavenie`) VALUES
 (14, 2),
 (15, 6);
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `cviky`
---
 
 CREATE TABLE `cviky` (
   `IDcvik` int(11) NOT NULL,
@@ -99,9 +55,6 @@ CREATE TABLE `cviky` (
   `postup` text COLLATE utf8mb4_slovak_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `cviky`
---
 
 INSERT INTO `cviky` (`IDcvik`, `cvik`, `postup`) VALUES
 (1, 'Diamantové kliky', 'Srovnáme se do základní polohy kliku s lokty opřenými o hrudník a dlaně jsou pod tělem u sebe. Nejsme nijak prohlí ani ohlí. Máme zpevněné lopatky i celý spodek těla.\r\nS nádechem začneme klesat kontrolovaným tempem směrem k zemi. Zastavíme se pár centimetrů nad zemí, kde se na malou chvíli zastavíme a potom s výdechem vystartujeme zpátky do původní pozice. Soustřeďte se na vykonávání celého pohybu za pomocí tricepsů.\r\nDole budou protažené a ve vrchní části pohybu je pořádně zatneme.'),
@@ -120,11 +73,6 @@ INSERT INTO `cviky` (`IDcvik`, `cvik`, `postup`) VALUES
 (14, 'Skracovačky', 'Ľahnite si na chrbát. Prekrížte si ruky na hrudníku a nohy majte pokrčené v kolenách a chodidlá na zemi. Vykonajte kontrakciu brušných svalov tak, aby sa trup \"zbalil\" smerom dopredu. Pohyb vykonávajte iba minimálny, vychádzajúci hlavne z brucha. Nikdy sa nesnažte pohyb vykonávať švihom. Snažte sa lopatky zdvíhať pomaly a maximálne kontrahujte brušné svaly.'),
 (15, 'Zhyby podhmatom', 'Pozdvihneme sa a podhmatom uchopíme hrazdu tak, že ruky sú od seba vzdialené menej ako je šírka ramien. Nohy zdvihneme z podlahy a pre lepší balans ich pokrčíme v kolenách. Pri počiatočnej polohe na hrazde visíme s vystretými rukami. Následne sa zdvíhame hore tak, že k hrazde približujeme hrudník, ktorý počas pohybu vypíname vpred. V chrbát sa prehýbame vzad a do vrchnej pozície dorazíme vtedy, ak je brada aspoň na úrovni hrazdy. Potom sa môžeme pomaly spustiť do počiatočnej pozície.');
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `faq`
---
 
 CREATE TABLE `faq` (
   `IDotazka` int(11) NOT NULL,
@@ -132,9 +80,6 @@ CREATE TABLE `faq` (
   `odpoved` text COLLATE utf8mb4_slovak_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `faq`
---
 
 INSERT INTO `faq` (`IDotazka`, `otazka`, `odpoved`) VALUES
 (1, 'Ako dlho by mal trvať tréning v posilňovni?', 'Samotná dĺžka tréningovej jednotky je závislá od mnohých faktorov. Aby ste budovali svaly, tréning môže trvať ľubovoľný čas v optimálnom rozmedzí 45 minút až 2 hodín. Vo všeobecnosti sa však odporúča nepresahovať jednu hodinu, pretože sa vtedy začína uvoľňovať stresový hormón kortizol, ktorý by mohol viesť ku katabolizmu. Ten predstavuje spaľovanie svalových buniek. \r\n\r\nCieľom posilňovania nie je vyčerpať srdcový sval, ale strategicky zničiť svalové vlákna odporom, ktorý predstavujú činky, stroje či gravitácia. Medzi sériami je vhodné oddychovať minútu až dve, aby ste dosiahli maximálny výkon v každej sérii. Ak sa snažíte spáliť tuky alebo zvýšiť kardiovaskulárnu kondíciu, efektívnymi technikami sú supersety, gigantické sety či kratšia prestávka – 30 až 45 sekúnd. Rovnako zložený tréning sa tak dá odcvičiť za dve hodiny alebo aj menej ako hodinu v závislosti od dĺžky prestávok.'),
@@ -143,11 +88,6 @@ INSERT INTO `faq` (`IDotazka`, `otazka`, `odpoved`) VALUES
 (4, 'Koľko jedál denne jesť? Optimálna frekvencia jedál', 'Existuje univerzálna alebo ak chcete optimálna frekvencia jedál? Ako to už vo svete fitness býva, je to bohužiaľ veľmi individuálne. Všeobecná príručka teda jednoducho neexistuje. Napriek tomu si dovolím tvrdiť, že existuje optimálna frekvencia jedál. Optimálna frekvencia je teda predovšetkým tá, ktorá najlepšie vyhovuje vášmu telu aj životnému štýlu.\r\n\r\nVždy musíte počúvať svoje telo a upraviť počet kalórií, počet jedál a ich zložky vášmu životnému štýlu, kalorickému výdaju alebo cieľom. Obézny človek, ktorý sa snaží schudnúť, má teda úplne iný režim ako športovec, ktorý sa pripravuje na kulturistickú súťaž.'),
 (5, 'Môžem sa predávkovať kreatínom?', 'Kreatín je bezpečná látka, ktorej sa zdraví ľudia nemusia obávať. Napriek tomu je možné, že pri nadmernom dávkovaní (rovnako ako pri iných látkach) môže spôsobiť niektoré negatívne účinky. Nemusíte sa však obávať žiadnych vážnych problémov, pretože tie zahŕňajú najmä tráviace problémy a prípadne svalové kŕče. Maximálna denná dávka kreatínu neexistuje, ale ak sa budete riadiť zdravým rozumom a odporúčaniami výrobcu, nemusíte sa ničoho obávať. Niektorí ľudia môžu mať problémy s takzvanou nasycovacou fázou, počas ktorej sa používajú vyššie dávky kreatínu, ale tejto fáze sa dá ľahko vyhnúť. A ak vám kreatín monohydrát nerobí dobre, vyskúšajte kreatín vo forme hydrochloridu, ktorý je v tomto ohľade oveľa šetrnejší.\r\n\r\nDôležité je uvedomiť si, že nadmerný príjem kreatínu nie je v skutočnosti prospešný, takže užívanie vyšších dávok nemá zmysel.');
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `ingrediencie`
---
 
 CREATE TABLE `ingrediencie` (
   `IDingrediencie` int(11) NOT NULL,
@@ -156,9 +96,6 @@ CREATE TABLE `ingrediencie` (
   `gramaz` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `ingrediencie`
---
 
 INSERT INTO `ingrediencie` (`IDingrediencie`, `IDrecept`, `ingrediencia`, `gramaz`) VALUES
 (1, 1, 'Špagety', '500g'),
@@ -175,22 +112,12 @@ INSERT INTO `ingrediencie` (`IDingrediencie`, `IDrecept`, `ingrediencia`, `grama
 (13, 1, 'Olivový olej', '-'),
 (14, 1, 'Oregáno', '-');
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `ponukanesluzby`
---
 
 CREATE TABLE `ponukanesluzby` (
   `IDsluzba` int(11) NOT NULL,
   `nazovSluzby` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `potraviny`
---
 
 CREATE TABLE `potraviny` (
   `IDpotravina` int(11) NOT NULL,
@@ -208,9 +135,6 @@ CREATE TABLE `potraviny` (
   `sodik` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `potraviny`
---
 
 INSERT INTO `potraviny` (`IDpotravina`, `nazovPotraviny`, `IDtyp`, `imagePotravina`, `kalorie`, `bielkoviny`, `sacharidy`, `tuky`, `draslik`, `horcik`, `fosfor`, `vapnik`, `sodik`) VALUES
 (0, 'Egreše', 1, './media/gooseberries-potravina.jpg', 49, 0.82, 10, 0.2, 19.8, 1, 2.7, 2.5, 0.1),
@@ -268,11 +192,6 @@ INSERT INTO `potraviny` (`IDpotravina`, `nazovPotraviny`, `IDtyp`, `imagePotravi
 (53, 'Cesnak', 2, './media/garlic-potravina.jpg', 163, 6, 32, 0.6, 40, 24, 15.1, 18, 0),
 (54, 'Paprika červená', 2, './media/paprika-red-potravina.jpg', 27, 0.9, 4.64, 0.13, 21.3, 1.1, 2.7, 0.6, 0.3);
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `recepty`
---
 
 CREATE TABLE `recepty` (
   `IDrecept` int(11) NOT NULL,
@@ -287,27 +206,16 @@ CREATE TABLE `recepty` (
   `tuky` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `recepty`
---
 
 INSERT INTO `recepty` (`IDrecept`, `recept`, `obtiaznost`, `cas`, `postup`, `image`, `kalorie`, `bielkoviny`, `sacharidy`, `tuky`) VALUES
 (1, 'Mäsové guľky v paradajkovej omáčke so špagetami', 4, '60 minút', 'Mäsové guľky - Jednoducho všetky suroviny zmiešame v miske rukami dokiaľ sa všetky suroviny pekne neprepoja.  Zo zmesi vytvoríme menšie guľky a poukladáme na tanier. Paradajková omáčka - Na väčšej a hlbšej panvici si rozohrejeme olivový olej, pridáme najemno nakrájaný cesnak, cibuľu, nastrúhanú cukinu a miešame približne 5 minút. Potom pridáme nakrájané paradajky, paradajkový pretlak, trstinový cukor, dochutíme korením, čerstvou bazalkou, soľou a miešame. Omáčku necháme mierne bublať. Vedľa v ďalšej panvici rozohrejeme olivový olej a mäsové guľky sprudka opečieme z každej strany. Následne ich premiestnime do omáčky a varíme v omáčke pod pokrievkou. Vždy po chvíľke mäsové guľky zľahka premiešame a polievame omáčkou. Dusíme približne 20 minút, dokiaľ masové guľky nie sú hotové. Špagety varíme podľa návodu domäkka, poprípade podľa vlastnej chute.', './media/masove-gulky-paradajkova-omacka-spagety-recept.jpg', 95, 5, 10, 4);
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `svalcvik`
---
 
 CREATE TABLE `svalcvik` (
   `IDcvik` int(11) NOT NULL,
   `IDsval` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `svalcvik`
---
 
 INSERT INTO `svalcvik` (`IDcvik`, `IDsval`) VALUES
 (1, 7),
@@ -326,20 +234,12 @@ INSERT INTO `svalcvik` (`IDcvik`, `IDsval`) VALUES
 (14, 1),
 (15, 2);
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `svaly`
---
 
 CREATE TABLE `svaly` (
   `IDsval` int(11) NOT NULL,
   `sval` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `svaly`
---
 
 INSERT INTO `svaly` (`IDsval`, `sval`) VALUES
 (1, 'Brušné svaly'),
@@ -358,20 +258,12 @@ INSERT INTO `svaly` (`IDsval`, `sval`) VALUES
 (14, 'Šikmé brušné svaly'),
 (15, 'Sedacie svaly');
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `typypotravin`
---
 
 CREATE TABLE `typypotravin` (
   `IDtyp` int(11) NOT NULL,
   `typPotraviny` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `typypotravin`
---
 
 INSERT INTO `typypotravin` (`IDtyp`, `typPotraviny`) VALUES
 (1, 'Ovocie'),
@@ -384,20 +276,12 @@ INSERT INTO `typypotravin` (`IDtyp`, `typPotraviny`) VALUES
 (8, 'Strukoviny'),
 (9, 'Huby');
 
--- --------------------------------------------------------
-
---
--- Štruktúra tabuľky pre tabuľku `vybavenia`
---
 
 CREATE TABLE `vybavenia` (
   `IDvybavenie` int(11) NOT NULL,
   `vybavenie` varchar(100) COLLATE utf8mb4_slovak_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `vybavenia`
---
 
 INSERT INTO `vybavenia` (`IDvybavenie`, `vybavenie`) VALUES
 (1, 'Bez vybavenia'),
@@ -420,195 +304,96 @@ INSERT INTO `vybavenia` (`IDvybavenie`, `vybavenie`) VALUES
 (18, 'Záťažové vesty'),
 (19, 'Závažie na telo');
 
---
--- Kľúče pre exportované tabuľky
---
 
---
--- Indexy pre tabuľku `balicek`
---
 ALTER TABLE `balicek`
   ADD PRIMARY KEY (`IDbalicek`);
 
---
--- Indexy pre tabuľku `baliceksluzby`
---
 ALTER TABLE `baliceksluzby`
   ADD PRIMARY KEY (`IDbalicek`,`IDsluzba`),
   ADD KEY `IDsluzba` (`IDsluzba`);
 
---
--- Indexy pre tabuľku `cvikvybavenie`
---
 ALTER TABLE `cvikvybavenie`
   ADD PRIMARY KEY (`IDcvik`,`IDvybavenie`),
   ADD KEY `IDvybavenie` (`IDvybavenie`);
 
---
--- Indexy pre tabuľku `cviky`
---
 ALTER TABLE `cviky`
   ADD PRIMARY KEY (`IDcvik`);
 
---
--- Indexy pre tabuľku `faq`
---
 ALTER TABLE `faq`
   ADD PRIMARY KEY (`IDotazka`);
 
---
--- Indexy pre tabuľku `ingrediencie`
---
 ALTER TABLE `ingrediencie`
   ADD PRIMARY KEY (`IDingrediencie`),
   ADD KEY `IDrecept` (`IDrecept`);
 
---
--- Indexy pre tabuľku `ponukanesluzby`
---
 ALTER TABLE `ponukanesluzby`
   ADD PRIMARY KEY (`IDsluzba`);
 
---
--- Indexy pre tabuľku `potraviny`
---
 ALTER TABLE `potraviny`
   ADD PRIMARY KEY (`IDpotravina`),
   ADD KEY `IDtyp` (`IDtyp`);
 
---
--- Indexy pre tabuľku `recepty`
---
 ALTER TABLE `recepty`
   ADD PRIMARY KEY (`IDrecept`);
 
---
--- Indexy pre tabuľku `svalcvik`
---
 ALTER TABLE `svalcvik`
   ADD PRIMARY KEY (`IDcvik`,`IDsval`),
   ADD KEY `IDsval` (`IDsval`);
 
---
--- Indexy pre tabuľku `svaly`
---
 ALTER TABLE `svaly`
   ADD PRIMARY KEY (`IDsval`);
 
---
--- Indexy pre tabuľku `typypotravin`
---
 ALTER TABLE `typypotravin`
   ADD PRIMARY KEY (`IDtyp`);
 
---
--- Indexy pre tabuľku `vybavenia`
---
 ALTER TABLE `vybavenia`
   ADD PRIMARY KEY (`IDvybavenie`);
 
---
--- AUTO_INCREMENT pre exportované tabuľky
---
-
---
--- AUTO_INCREMENT pre tabuľku `balicek`
---
 ALTER TABLE `balicek`
   MODIFY `IDbalicek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT pre tabuľku `cviky`
---
 ALTER TABLE `cviky`
   MODIFY `IDcvik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
---
--- AUTO_INCREMENT pre tabuľku `faq`
---
 ALTER TABLE `faq`
   MODIFY `IDotazka` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT pre tabuľku `ingrediencie`
---
 ALTER TABLE `ingrediencie`
   MODIFY `IDingrediencie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
---
--- AUTO_INCREMENT pre tabuľku `ponukanesluzby`
---
 ALTER TABLE `ponukanesluzby`
   MODIFY `IDsluzba` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT pre tabuľku `potraviny`
---
 ALTER TABLE `potraviny`
   MODIFY `IDpotravina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
---
--- AUTO_INCREMENT pre tabuľku `recepty`
---
 ALTER TABLE `recepty`
   MODIFY `IDrecept` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT pre tabuľku `svaly`
---
 ALTER TABLE `svaly`
   MODIFY `IDsval` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
---
--- AUTO_INCREMENT pre tabuľku `typypotravin`
---
 ALTER TABLE `typypotravin`
   MODIFY `IDtyp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT pre tabuľku `vybavenia`
---
 ALTER TABLE `vybavenia`
   MODIFY `IDvybavenie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
---
--- Obmedzenie pre exportované tabuľky
---
-
---
--- Obmedzenie pre tabuľku `baliceksluzby`
---
 ALTER TABLE `baliceksluzby`
   ADD CONSTRAINT `baliceksluzby_ibfk_1` FOREIGN KEY (`IDbalicek`) REFERENCES `balicek` (`IDbalicek`),
   ADD CONSTRAINT `baliceksluzby_ibfk_2` FOREIGN KEY (`IDsluzba`) REFERENCES `ponukanesluzby` (`IDsluzba`);
 
---
--- Obmedzenie pre tabuľku `cvikvybavenie`
---
 ALTER TABLE `cvikvybavenie`
   ADD CONSTRAINT `cvikvybavenie_ibfk_1` FOREIGN KEY (`IDcvik`) REFERENCES `cviky` (`IDcvik`),
   ADD CONSTRAINT `cvikvybavenie_ibfk_2` FOREIGN KEY (`IDvybavenie`) REFERENCES `vybavenia` (`IDvybavenie`);
 
---
--- Obmedzenie pre tabuľku `ingrediencie`
---
 ALTER TABLE `ingrediencie`
   ADD CONSTRAINT `ingrediencie_ibfk_1` FOREIGN KEY (`IDrecept`) REFERENCES `recepty` (`IDrecept`);
 
---
--- Obmedzenie pre tabuľku `potraviny`
---
 ALTER TABLE `potraviny`
   ADD CONSTRAINT `potraviny_ibfk_1` FOREIGN KEY (`IDtyp`) REFERENCES `typypotravin` (`IDtyp`);
 
---
--- Obmedzenie pre tabuľku `svalcvik`
---
 ALTER TABLE `svalcvik`
   ADD CONSTRAINT `svalcvik_ibfk_1` FOREIGN KEY (`IDcvik`) REFERENCES `cviky` (`IDcvik`),
   ADD CONSTRAINT `svalcvik_ibfk_2` FOREIGN KEY (`IDsval`) REFERENCES `svaly` (`IDsval`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
