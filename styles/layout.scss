@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 @import "colours.scss";
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
 
@@ -79,3 +80,165 @@ html{
         font-size: 10px;
     }
 }
+=======
+@import "colours.scss";
+@import url("https://fonts.googleapis.com/css2?family=News+Cycle&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "News Cycle", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  // min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-size: 2rem;
+  font-weight: 500;
+
+  background-color: $main;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  //overflow-x: hidden;
+
+  .back-button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    background-color: $darkgray;
+    padding: 2rem;
+    gap: 2rem;
+    img {
+      width: 2.5rem;
+    }
+    span {
+      color: $lightgray;
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.header {
+  text-align: center;
+  h1 {
+    color: $lightgray;
+    text-transform: uppercase;
+    strong {
+      color: $outline;
+    }
+  }
+}
+
+label {
+  color: $outline;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: none;
+  outline: solid rgba($color: $lightgray, $alpha: 0.5);
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: $darkgray;
+  color: $lightgray;
+  resize: none;
+  font-size: 2.5rem;
+  transition: 0.5s;
+
+  &:hover {
+    outline: solid $lightgray;
+    transition: 0.5s;
+  }
+  &:focus {
+    outline: solid $outline;
+    transition: 0.5s;
+  }
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.btn,
+.back-button,
+.submit-button {
+  cursor: pointer;
+  outline: solid $lightgray;
+  text-transform: uppercase;
+  border-radius: 5px;
+  &:hover {
+    outline: solid $outline;
+    transition: 0.5s;
+  }
+}
+
+.add-button {
+  .button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    img {
+      width: 5rem;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+    span {
+      color: $lightgray;
+    }
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+html {
+  font-size: 10px;
+  h1 {
+    font-size: 4rem;
+  }
+
+  p {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+@media (min-width: 601px) {
+  html {
+    font-size: 7px;
+  }
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 1000px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 10px;
+  }
+}
+>>>>>>> Stashed changes

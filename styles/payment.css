@@ -1,0 +1,229 @@
+body {
+  padding: 5rem 10rem;
+}
+body .payment-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+body .payment-form-wrapper .form-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  min-width: 300px;
+  width: 100%;
+  gap: 4rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 10rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 4rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  width: 100%;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .fname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .lname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .email-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .phone-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .card-number-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .cardholder-name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .msg-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .fname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .lname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .email-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .phone-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .card-number-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .cardholder-name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .msg-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .fname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .lname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .email-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .phone-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .card-number-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .cardholder-name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .msg-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .fname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .lname,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .email-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .phone-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .card-number-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .cardholder-name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .msg-wrapper {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .fname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .fname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .lname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .lname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .email-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .email-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .phone-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .phone-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .card-number-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .card-number-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .cardholder-name-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .cardholder-name-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .msg-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .name-wrapper .msg-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .fname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .fname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .lname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .lname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .email-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .email-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .phone-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .phone-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .card-number-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .card-number-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .cardholder-name-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .cardholder-name-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .msg-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .mail-phone .msg-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .fname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .fname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .lname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .lname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .email-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .email-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .phone-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .phone-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .card-number-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .card-number-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .cardholder-name-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .cardholder-name-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .msg-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .name-wrapper .msg-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .fname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .fname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .lname #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .lname #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .email-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .email-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .phone-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .phone-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .card-number-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .card-number-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .cardholder-name-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .cardholder-name-wrapper #phone,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .msg-wrapper #lnamelabel,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .mail-phone .msg-wrapper #phone {
+  width: 100%;
+  text-align: end;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .card-number-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .cardholder-name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .msg-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .card-number-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .cardholder-name-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .msg-wrapper {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .card-number-wrapper .number-icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .cardholder-name-wrapper .number-icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .msg-wrapper .number-icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .card-number-wrapper .number-icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .cardholder-name-wrapper .number-icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .msg-wrapper .number-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .card-number-wrapper .number-icons .icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .cardholder-name-wrapper .number-icons .icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .msg-wrapper .number-icons .icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .card-number-wrapper .number-icons .icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .cardholder-name-wrapper .number-icons .icons,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .msg-wrapper .number-icons .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .card-number-wrapper .number-icons .icons .icon,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .cardholder-name-wrapper .number-icons .icons .icon,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .msg-wrapper .number-icons .icons .icon,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .card-number-wrapper .number-icons .icons .icon,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .cardholder-name-wrapper .number-icons .icons .icon,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .msg-wrapper .number-icons .icons .icon {
+  width: 4rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .card-number-wrapper .char-counter,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .cardholder-name-wrapper .char-counter,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .msg-wrapper .char-counter,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .card-number-wrapper .char-counter,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .cardholder-name-wrapper .char-counter,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .msg-wrapper .char-counter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .card-number-wrapper .char-counter span,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .cardholder-name-wrapper .char-counter span,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .msg-wrapper .char-counter span,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .card-number-wrapper .char-counter span,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .cardholder-name-wrapper .char-counter span,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .msg-wrapper .char-counter span {
+  color: #e5e5e0;
+  opacity: 50%;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .date-cvv,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .date-cvv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+  width: 100%;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .date-cvv .exp-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .date-cvv .cvv-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .date-cvv .exp-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .date-cvv .cvv-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+}
+body .payment-form-wrapper .form-wrapper .input-wrapper .contact-details-wrapper .date-cvv .cvv-wrapper,
+body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .date-cvv .cvv-wrapper {
+  max-width: 100px;
+  min-width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}

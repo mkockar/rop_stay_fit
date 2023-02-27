@@ -1,0 +1,33 @@
+body {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      .logo {
+        width: 30rem;
+      }
+    }
+    .home-button-container {
+      .home-button {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        transition: 0.5s ease-out;
+        img {
+          width: 10rem;
+        }
+
+        &:hover {
+          scale: 1.1;
+          transition: 0.5s ease-in;
+        }
+      }
+    }
+  }
+}

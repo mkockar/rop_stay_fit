@@ -1,0 +1,15 @@
+@import "colours.scss";
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: $outline;
+  }
+  img {
+    max-width: 60rem;
+    border-radius: 5px;
+  }
+}

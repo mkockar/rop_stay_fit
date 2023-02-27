@@ -1,0 +1,133 @@
+@import "colours.scss";
+
+* {
+  //background-color: rgba(8, 250, 0, 0.5);
+
+  //outline: solid 2px red;
+}
+
+body {
+  padding: 5rem 10rem;
+  .payment-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      min-width: 300px;
+      width: 100%;
+      gap: 4rem;
+      .input-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 10rem;
+        .contact-details-wrapper,
+        .card-details-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          gap: 4rem;
+          .name-wrapper,
+          .mail-phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6rem;
+            width: 100%;
+            .fname,
+            .lname,
+            .email-wrapper,
+            .phone-wrapper,
+            .card-number-wrapper,
+            .cardholder-name-wrapper,
+            .msg-wrapper {
+              display: flex;
+              align-items: start;
+              justify-content: center;
+              flex-direction: column;
+              width: 100%;
+              gap: 1rem;
+
+              #lnamelabel,
+              #phone {
+                width: 100%;
+                text-align: end;
+              }
+            }
+          }
+
+          .card-number-wrapper,
+          .cardholder-name-wrapper,
+          .msg-wrapper {
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+
+            .number-icons {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+              .icons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                .icon {
+                  width: 4rem;
+                }
+              }
+            }
+            .char-counter {
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              width: 100%;
+              span {
+                color: $lightgray;
+                opacity: 50%;
+              }
+            }
+          }
+          .date-cvv {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6rem;
+            width: 100%;
+
+            .exp-wrapper,
+            .cvv-wrapper {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: start;
+              gap: 1rem;
+            }
+
+            .cvv-wrapper {
+              max-width: 100px;
+              min-width: 80px;
+              display: flex;
+              justify-content: center;
+              align-items: end;
+            }
+          }
+        }
+      }
+    }
+  }
+}

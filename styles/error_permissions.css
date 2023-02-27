@@ -1,0 +1,22 @@
+.error-body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.error-body .error-main h1 {
+  color: #e5e5e0;
+  text-align: center;
+  font-size: 6rem;
+}
+.error-body .error-main a {
+  color: #e5e5e0;
+  text-decoration-color: #8dc63f;
+  opacity: 40%;
+  transition: 0.5s;
+}
+.error-body .error-main a:hover {
+  scale: 1.1;
+  transition: 0.5s;
+}

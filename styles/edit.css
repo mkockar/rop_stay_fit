@@ -1,0 +1,13 @@
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image-container h1 {
+  color: #8dc63f;
+}
+.image-container img {
+  max-width: 60rem;
+  border-radius: 5px;
+}

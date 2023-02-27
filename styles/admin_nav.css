@@ -1,0 +1,28 @@
+body nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body nav .logo-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+body nav .logo-container .logo {
+  width: 30rem;
+}
+body nav .home-button-container .home-button {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: 0.5s ease-out;
+}
+body nav .home-button-container .home-button img {
+  width: 10rem;
+}
+body nav .home-button-container .home-button:hover {
+  scale: 1.1;
+  transition: 0.5s ease-in;
+}

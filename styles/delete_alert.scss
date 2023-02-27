@@ -1,0 +1,21 @@
+@import "colours.scss";
+
+.options-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  a {
+    text-decoration: none;
+    color: $lightgray;
+    text-align: center;
+    opacity: 50%;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 100%;
+      transition: 0.5s;
+    }
+  }
+}

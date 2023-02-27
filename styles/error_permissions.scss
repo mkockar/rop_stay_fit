@@ -1,0 +1,26 @@
+@import "colours.scss";
+
+.error-body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .error-main {
+    h1 {
+      color: $lightgray;
+      text-align: center;
+      font-size: 6rem;
+    }
+    a {
+      color: $lightgray;
+      text-decoration-color: $outline;
+      opacity: 40%;
+      transition: 0.5s;
+      &:hover {
+        scale: 1.1;
+        transition: 0.5s;
+      }
+    }
+  }
+}
