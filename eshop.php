@@ -44,8 +44,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <main class="eshop">
     <div class="container">
 
-      <form action="payment.php" method="post" >
-        <div class="cards-membership">
+      <div class="cards-membership">
+        <form action="" method="post">
           <div class="card" id="bronze">
             <div class="inside">
               <div class="top-strip">
@@ -56,8 +56,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <img src="media/icons/about-me-nav.png" alt="" />
                 </div>
                 <div class="name">
-                  <h1>Bronzový balíček</h1>
-                  <div class="price">xxx€</div>
+                  <h1>BRONZOVÝ BALÍČEK</h1>
+                  <div class="price">100€</div>
                 </div>
                 <div class="list">
                   <ul>
@@ -91,7 +91,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
               </div>
             </div>
           </div>
+        </form>
 
+        <form action="" method="post">
           <div class="card" id="platinum">
             <div class="inside">
               <div class="top-strip">
@@ -103,7 +105,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="name">
                   <h1>PLATINOVÝ BALÍČEK</h1>
-                  <div class="price">xxx€</div>
+                  <div class="price">300€</div>
                 </div>
                 <div class="list">
                   <ul>
@@ -129,13 +131,17 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </li>
                   </ul>
                   <div class="button">
+                    <input type="text" name="product" value="Platinum balíček" hidden>
+                    <input type="text" name="price" value="300€" hidden>
                     <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </form>
 
+        <form action="" method="post">
           <div class="card" id="gold">
             <div class="inside">
               <div class="top-strip">
@@ -147,7 +153,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="name">
                   <h1>ZLATÝ BALÍČEK</h1>
-                  <div class="price">xxx€</div>
+                  <div class="price">200€</div>
                 </div>
                 <div class="list">
                   <ul>
@@ -173,14 +179,16 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </li>
                   </ul>
                   <div class="button">
+                    <input type="text" name="product" value="Zlatý balíček" hidden>
+                    <input type="text" name="price" value="200€" hidden>
                     <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
 
     </div>
   </main>

@@ -8,6 +8,7 @@ body .payment-form-wrapper {
   justify-content: center;
   width: 100%;
   gap: 2rem;
+  padding: 5rem;
 }
 body .payment-form-wrapper .form-wrapper {
   display: flex;
@@ -227,6 +228,44 @@ body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .d
   justify-content: center;
   align-items: end;
 }
-body .payment-form-wrapper .form-wrapper .input-wrapper .order-sumary span {
+body .payment-form-wrapper .form-wrapper .order-sumary {
+  display: flex;
+  flex-direction: column;
+}
+body .payment-form-wrapper .form-wrapper .order-sumary .title-order-sumary {
+  text-align: center;
   color: #8dc63f;
+}
+body .payment-form-wrapper .form-wrapper .order-sumary .order-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+body .payment-form-wrapper .form-wrapper .order-sumary .order-wrapper .label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+body .payment-form-wrapper .form-wrapper .order-sumary .order-wrapper .label-wrapper .label-product-price {
+  color: #8dc63f;
+  text-transform: uppercase;
+}
+body .payment-form-wrapper .form-wrapper .order-sumary .order-wrapper .product-name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #e5e5e0;
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: #303030;
+  opacity: 50%;
+}
+body .payment-form-wrapper .form-wrapper .order-sumary .order-wrapper .product-name-price .product-price {
+  color: #e5e5e0;
+  text-transform: uppercase;
 }

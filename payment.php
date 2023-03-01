@@ -5,9 +5,9 @@ if (isset($_POST['pay'])) {
     $lname = $_POST['lname'];
     $fname = $_POST['fname'];
     $msg = $_POST['msg'];
-    $msgMail = "Meno: $fname <br> Priezvisko: $lname <br> Telefónne číslo: $phone <br> Poznámka: $msg";
+    $msgMail = "Meno: $fname <br> Priezvisko: $lname <br> Telefónne číslo: $phone <br> Poznámka: $msg <br> Produkt: $product";
 
-    $title = 'Potvrdenie objednávky';
+    $title = "Potvrdenie objednávky - $product";
 
     require_once('generateEmail.php');
 
@@ -105,14 +105,15 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="order-sumary">
-                <span>SUMARIZÁCIA OBJEDNÁVKY</span>
                 <div class="order-wrapper">
-                    <div class="product-name">
-                        <span><?php echo $product ?></span>
+                    <span class="title-order-sumary">SUMARIZÁCIA OBJEDNÁVKY</span>
+                    <div class="label-wrapper">
+                        <span class="label-product-price">Produkt</span>
+                        <span class="label-product-price">Cena</span>
                     </div>
-
-                    <div class="product-price">
-                        <span><?php echo $price ?></span>
+                    <div class="product-name-price">
+                        <span class="product-price"><?php echo $product ?></span>
+                        <span class="product-price"><?php echo $price ?></span>
                     </div>
                 </div>
             </div>
