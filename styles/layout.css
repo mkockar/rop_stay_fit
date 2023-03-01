@@ -83,6 +83,7 @@ body {
 
 label {
   color: #8dc63f;
+  text-transform: uppercase;
 }
 
 input,

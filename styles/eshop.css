@@ -9,15 +9,23 @@
 }
 .eshop .container {
   padding: 10rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
 }
-.eshop .container .cards-membership {
+.eshop .container .cards-membership,
+.eshop .container .cards-services {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 10rem;
+  max-width: 1300px;
 }
-.eshop .container .cards-membership .card {
+.eshop .container .cards-membership .card,
+.eshop .container .cards-services .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +35,8 @@
   background-color: #303030;
   transition: 0.5s;
 }
-.eshop .container .cards-membership .card .inside {
+.eshop .container .cards-membership .card .inside,
+.eshop .container .cards-services .card .inside {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -35,41 +44,47 @@
   align-items: center;
   position: relative;
 }
-.eshop .container .cards-membership .card .inside .top-strip {
+.eshop .container .cards-membership .card .inside .top-strip,
+.eshop .container .cards-services .card .inside .top-strip {
   width: 100%;
   height: 40px;
   border-radius: 0px 0px 5px 5px;
   opacity: 0;
   transition: 0.5s;
 }
-.eshop .container .cards-membership .card .inside .content {
+.eshop .container .cards-membership .card .inside .content,
+.eshop .container .cards-services .card .inside .content {
   padding: 0 2rem 5rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  letter-spacing: 0.5rem;
+  width: 100%;
 }
-.eshop .container .cards-membership .card .inside .content .icon img {
+.eshop .container .cards-membership .card .inside .content .icon img,
+.eshop .container .cards-services .card .inside .content .icon img {
   width: 6rem;
 }
-.eshop .container .cards-membership .card .inside .content .name {
+.eshop .container .cards-membership .card .inside .content .name,
+.eshop .container .cards-services .card .inside .content .name {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #e5e5e0;
 }
-.eshop .container .cards-membership .card .inside .content .name h1 {
+.eshop .container .cards-membership .card .inside .content .name h1,
+.eshop .container .cards-services .card .inside .content .name h1 {
   text-align: center;
-  position: relative;
 }
-.eshop .container .cards-membership .card .inside .content .name .price {
-  opacity: 30%;
-  font-size: 2.5rem;
+.eshop .container .cards-membership .card .inside .content .name .price,
+.eshop .container .cards-services .card .inside .content .name .price {
+  font-size: 4rem;
+  color: #8dc63f;
 }
-.eshop .container .cards-membership .card .inside .content .list {
+.eshop .container .cards-membership .card .inside .content .list,
+.eshop .container .cards-services .card .inside .content .list {
   padding: 0 2rem 0 2rem;
   display: flex;
   flex-direction: column;
@@ -79,115 +94,135 @@
   width: 100%;
   color: #e5e5e0;
 }
-.eshop .container .cards-membership .card .inside .content .list ul {
+.eshop .container .cards-membership .card .inside .content .list ul,
+.eshop .container .cards-services .card .inside .content .list ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 100%;
 }
-.eshop .container .cards-membership .card .inside .content .list ul li {
+.eshop .container .cards-membership .card .inside .content .list ul li,
+.eshop .container .cards-services .card .inside .content .list ul li {
   border-top: 1px solid #262626;
   width: 100%;
-  text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
-.eshop .container .cards-membership .card .inside .content .list ul li img {
+.eshop .container .cards-membership .card .inside .content .list ul li img,
+.eshop .container .cards-services .card .inside .content .list ul li img {
   width: 3rem;
 }
-.eshop .container .cards-membership .card .inside .content .list .button {
+.eshop .container .cards-membership .card .inside .content .list .button,
+.eshop .container .cards-services .card .inside .content .list .button {
   width: 100%;
 }
-.eshop .container .cards-membership .card .inside .content .list .button a {
-  border: 1px solid #8dc63f;
-  border-radius: 5px;
-  text-align: center;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s;
-  text-decoration: none;
-  color: #e5e5e0;
+.eshop .container .cards-membership .card .inside .content .list .button .btn,
+.eshop .container .cards-services .card .inside .content .list .button .btn {
+  outline: solid #8dc63f;
 }
-.eshop .container .cards-membership .card:hover {
+.eshop .container .cards-membership .card:hover,
+.eshop .container .cards-services .card:hover {
   transform: translateY(-0.5rem);
 }
-.eshop .container .cards-membership .card:hover .inside .top-strip {
+.eshop .container .cards-membership .card:hover .inside .top-strip,
+.eshop .container .cards-services .card:hover .inside .top-strip {
   opacity: 1;
   transition: 0.5s;
 }
-.eshop .container .cards-membership #bronze .inside .top-strip {
+.eshop .container .cards-membership #bronze .inside .top-strip,
+.eshop .container .cards-services #bronze .inside .top-strip {
   background-color: rgb(205, 127, 50);
 }
-.eshop .container .cards-membership #bronze .inside .content .list .button:hover a {
-  border-color: rgb(205, 127, 50);
-  background-color: #e5e5e0;
-  color: #303030;
-  background-color: rgb(205, 127, 50);
-  order-color: rgb(205, 127, 50);
-  color: #303030;
-  transition: 0.5s;
-}
-.eshop .container .cards-membership #bronze:hover {
+.eshop .container .cards-membership #bronze:hover,
+.eshop .container .cards-services #bronze:hover {
   border-color: rgb(205, 127, 50);
   transition: 0.5s;
 }
-.eshop .container .cards-membership #bronze:hover .inside .content .name h1::after {
+.eshop .container .cards-membership #bronze:hover .inside .content .name h1::after,
+.eshop .container .cards-services #bronze:hover .inside .content .name h1::after {
   background-color: rgb(205, 127, 50);
   transition: 0.5s;
 }
-.eshop .container .cards-membership #bronze:hover .inside .content .list .button a {
-  border-color: rgb(205, 127, 50);
+.eshop .container .cards-membership #bronze:hover .inside .content .list .button .btn,
+.eshop .container .cards-services #bronze:hover .inside .content .list .button .btn {
+  outline-color: rgb(205, 127, 50);
   transition: 0.5s;
 }
-.eshop .container .cards-membership #platinum .inside .top-strip {
+.eshop .container .cards-membership #bronze:hover .inside .content .list .button .btn:hover,
+.eshop .container .cards-services #bronze:hover .inside .content .list .button .btn:hover {
+  scale: 1.05;
+}
+.eshop .container .cards-membership #platinum .inside .top-strip,
+.eshop .container .cards-services #platinum .inside .top-strip {
   background-color: #e5e4e2;
 }
-.eshop .container .cards-membership #platinum .inside .content .list .button:hover a {
-  background-color: #e5e4e2;
-  border-color: #e5e4e2;
-  color: #303030;
-  transition: 0.5s;
-}
-.eshop .container .cards-membership #platinum:hover {
-  border-color: #e5e4e2;
-  transition: 0.5s;
-}
-.eshop .container .cards-membership #platinum:hover .content .name h1::after {
-  background-color: #e5e4e2;
-}
-.eshop .container .cards-membership #platinum:hover .content .list .button div {
+.eshop .container .cards-membership #platinum:hover,
+.eshop .container .cards-services #platinum:hover {
   border-color: #e5e4e2;
   transition: 0.5s;
 }
-.eshop .container .cards-membership #gold .inside .top-strip {
-  background-color: #ffd700;
+.eshop .container .cards-membership #platinum:hover .content .name h1::after,
+.eshop .container .cards-services #platinum:hover .content .name h1::after {
+  background-color: #e5e4e2;
 }
-.eshop .container .cards-membership #gold .inside .content .list .button:hover div {
-  background-color: #ffd700;
-  border-color: #ffd700;
-  color: #303030;
+.eshop .container .cards-membership #platinum:hover .content .list .button .btn,
+.eshop .container .cards-services #platinum:hover .content .list .button .btn {
+  outline-color: #e5e4e2;
   transition: 0.5s;
 }
-.eshop .container .cards-membership #gold:hover {
-  border-color: #ffd700;
-  transition: 0.5s;
+.eshop .container .cards-membership #platinum:hover .content .list .button .btn:hover,
+.eshop .container .cards-services #platinum:hover .content .list .button .btn:hover {
+  scale: 1.05;
 }
-.eshop .container .cards-membership #gold:hover .content .name h1::after {
+.eshop .container .cards-membership #gold .inside .top-strip,
+.eshop .container .cards-services #gold .inside .top-strip {
   background-color: #ffd700;
 }
-.eshop .container .cards-membership #gold:hover .content .list .button div {
+.eshop .container .cards-membership #gold:hover,
+.eshop .container .cards-services #gold:hover {
   border-color: #ffd700;
   transition: 0.5s;
+}
+.eshop .container .cards-membership #gold:hover .content .name h1::after,
+.eshop .container .cards-services #gold:hover .content .name h1::after {
+  background-color: #ffd700;
+}
+.eshop .container .cards-membership #gold:hover .content .list .button .btn,
+.eshop .container .cards-services #gold:hover .content .list .button .btn {
+  outline-color: #ffd700;
+  transition: 0.5s;
+}
+.eshop .container .cards-membership #gold:hover .content .list .button .btn:hover,
+.eshop .container .cards-services #gold:hover .content .list .button .btn:hover {
+  scale: 1.05;
 }
 @media (min-width: 1250px) {
-  .eshop .container .cards-membership #platinum {
+  .eshop .container .cards-membership #platinum,
+  .eshop .container .cards-services #platinum {
     transform: translateY(-5rem);
   }
-  .eshop .container .cards-membership #platinum:hover {
+  .eshop .container .cards-membership #platinum:hover,
+  .eshop .container .cards-services #platinum:hover {
     transform: translateY(-5.5rem);
   }
+}
+.eshop .container .cards-services {
+  display: flex;
+  flex-basis: content;
+  flex: 1 1 auto;
+}
+.eshop .container .cards-services .card {
+  padding: 3rem 2rem;
+  max-width: 600px;
+  min-width: 400px;
+  height: 500px;
+  flex-shrink: 50%;
+}
+.eshop .container .cards-services .card .button {
+  width: 100%;
+}
+.eshop .container .cards-services .card .button .btn {
+  outline-color: #8dc63f;
 }
