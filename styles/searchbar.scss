@@ -13,17 +13,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    .search-bar {
-      padding: 5px 0;
-      font-size: 3rem;
-      margin: 10px 0;
-      border: none;
-      border-bottom: 1px solid $outline;
-      outline: none;
-      resize: none;
-      background-color: $main;
-      color: $lightgray;
-    }
+    gap: 2rem;
     .placeholder {
       position: absolute;
       left: 0;

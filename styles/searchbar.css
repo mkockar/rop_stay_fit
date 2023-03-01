@@ -12,17 +12,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-.search-form .searchbar .search-bar {
-  padding: 5px 0;
-  font-size: 3rem;
-  margin: 10px 0;
-  border: none;
-  border-bottom: 1px solid #8dc63f;
-  outline: none;
-  resize: none;
-  background-color: #262626;
-  color: #e5e5e0;
+  gap: 2rem;
 }
 .search-form .searchbar .placeholder {
   position: absolute;
