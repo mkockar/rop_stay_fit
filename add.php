@@ -5,11 +5,6 @@
 require_once('./php/db.php');
 session_start();
 
-
-
-
-
-
 function test_input($data)
 {
     $data = trim($data);
