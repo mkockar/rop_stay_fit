@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="./styles/admin_login.css" />
   <link rel="stylesheet" href="./styles/layout.css" />
   <link rel="stylesheet" href="./styles/admin_nav.css">
-
 </head>
 
 <?php
@@ -18,8 +17,14 @@ session_start();
 ?>
 
 <body>
-  <?php require_once('./components/admin-header.php') ?>
-
+  <nav>
+    <div class="logo-container">
+      <img src="./media/logo02.png" alt="" class="logo" />
+    </div>
+    <div class="home-button-container">
+      <a href="index.php" class="home-button"><img src="./media/icons/home-nav.png" alt="" /></a>
+    </div>
+  </nav>
 
   <main>
     <div class="header">
@@ -28,11 +33,9 @@ session_start();
         <?php echo $_SESSION['username'] ?>
         NEEXISTUJE
       </h1>
-      <div class="underline"></div>
 
       <div class="options">
         <a href="admin_login.php">PRIHLÁSIŤ SA ZNOVA
-          <div class="underline"></div>
         </a>
       </div>
     </div>

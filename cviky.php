@@ -10,24 +10,42 @@
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/nav.css">
   <link rel="stylesheet" href="styles/footer.css">
-  <link rel="stylesheet" href="styles/services-header.css">
   <link rel="stylesheet" href="styles/exercises.css">
+  <link rel="stylesheet" href="./styles/tables.css">
+  <link rel="stylesheet" href="./styles/searchbar.css">
 
 </head>
 
 <?php
-require_once("db.php");
+require_once("./php/db.php");
+session_start();
 
 $sql = "SELECT cviky.IDcvik, cviky.cvik, svaly.sval, vybavenia.vybavenie FROM `cviky`
-        JOIN svalcvik ON svalcvik.IDcvik = cviky.IDcvik
-        JOIN svaly ON svaly.IDsval = svalcvik.IDsval
-        JOIN cvikvybavenie ON cvikvybavenie.IDcvik = cviky.IDcvik
-        JOIN vybavenia ON vybavenia.IDvybavenie = cvikvybavenie.IDvybavenie;";
+        JOIN svaly ON svaly.IDsval = cviky.IDsval
+        JOIN vybavenia ON vybavenia.IDvybavenie = cviky.IDvybavenie 
+        ORDER BY cviky.cvik";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<?php if (isset($_SESSION['admin'])) : ?>
+  <style>
+    @media (min-width: 1200px) {
+      .exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list .exercises-columns .exercises-table-head {
+        grid-template-columns: 55% 15% 15% 15%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .exercises-main .exercises-wrapper .exercises-list-wrapper .exercises-list tbody tr {
+        display: grid;
+        grid-template-columns: 55% 15% 15% 15%;
+      }
+    }
+  </style>
+<?php endif ?>
 
 <body>
   <nav class="header">
@@ -48,49 +66,98 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <main class="exercises-main">
     <div class="exercises-wrapper">
-      <div class="searchbar">
-        <input class="search-bar" type="text" name="name" required="not-required" onkeyup="search()" />
-        <div class="placeholder">
-          <span>HĽADAŤ CVIK</span>
-          <img src="./media/icons/search-searchbar.png" alt="" />
+      <form action="" method="get" class="search-form">
+        <div class="searchbar">
+          <div class="search-wrapper">
+            <label for="search">HĽADAŤ CVIK</label>
+            <input class="search-bar" type="text" name="search" value="<?php if (isset($_GET['search'])) echo $_GET['search'] ?>" />
+          </div>
+          <input class="submit-button" type="submit" value="HĽADAŤ">
         </div>
-      </div>
+      </form>
+
+      <?php if (isset($_SESSION['admin'])) : ?>
+        <div class="add-button">
+          <a class="button" href="./add.php?tb=cviky">
+            <img src="./media/icons/add-admin.png" alt="">
+            <span>PRIDAJ CVIK</span>
+          </a>
+        </div>
+      <?php endif ?>
 
       <div class="filter-wrapper">
         <div class="filter-muscle">
           <div class="nadpis">
             <span>VYBERTE ZAMERANIE SVALOV</span>
           </div>
-          <?php include_once "./php/svalyRadioButtons.php"; ?>
+          <?php require_once("./php/svalyRadioButtons.php") ?>
         </div>
 
         <div class="filter-equipment">
           <div class="nadpis">
             <span>VYBERTE VYBAVENIE NA CVIČENIE</span>
           </div>
-          <?php include_once "./php/equipmentRadioButtons.php" ?>
+          <?php require_once("./php/equipmentRadioButtons.php") ?>
         </div>
       </div>
 
       <div class="exercises-list-wrapper">
         <table class="exercises-list table-sortable">
           <thead class="exercises-columns">
-            <tr>
+            <tr class="exercises-table-head">
               <th class="name">NÁZOV CVIKU</th>
               <th class="equipment">VÝBAVA</th>
               <th class="muscle">ZAMERANIE</th>
+              <?php if (isset($_SESSION['admin'])) : ?>
+                <th class="admin">EDIT</th>
+              <?php endif ?>
             </tr>
           </thead>
           <tbody>
+
+            <?php
+            if (isset($_GET['search'])) {
+              $filtervalues = $_GET['search'];
+              $sql = "SELECT cviky.IDcvik, cviky.cvik, svaly.sval, vybavenia.vybavenie FROM cviky
+                      JOIN svaly ON svaly.IDsval = cviky.IDsval
+                      JOIN vybavenia ON vybavenia.IDvybavenie = cviky.IDvybavenie
+                      WHERE cvik LIKE '%$filtervalues%'";
+              $stmt = $conn->prepare($sql);
+              $stmt->execute();
+              $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+              if ($_GET['search'] == '') {
+                $sql = "SELECT cviky.IDcvik, cviky.cvik, svaly.sval, vybavenia.vybavenie FROM `cviky`
+                        JOIN svaly ON svaly.IDsval = cviky.IDsval
+                        JOIN vybavenia ON vybavenia.IDvybavenie = cviky.IDvybavenie 
+                        ORDER BY cviky.cvik";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+              }
+            }
+            ?>
+
             <?php foreach ($result as $cvik) : ?>
               <tr>
-                <td>
-                  <a href="cvik.php?id=<?php echo $cvik['IDcvik']; ?>" class="item-container">
-                    <span class="exercise-name"><?php echo $cvik['cvik'] ?></span>
-                    <span class="exercise-equipment"><?php echo $cvik['vybavenie'] ?></span>
-                    <span class="exercise-target"><?php echo $cvik['sval'] ?></span>
-                  </a>
+                <td class="exercise-wrapper">
+                  <a class="item-container" href="cvik.php?id=<?php echo $cvik['IDcvik'] ?>"> <span class="exercise-name"><?php echo $cvik['cvik'] ?></span></a>
                 </td>
+                <td class="equipment-wrapper">
+                  <a class="item-container" href="cvik.php?id=<?php echo $cvik['IDcvik'] ?>"><span class="exercise-equipment"><?php echo $cvik['vybavenie'] ?></span></a>
+                </td>
+                <td class="target-wrapper">
+                  <a class="item-container" href="cvik.php?id=<?php echo $cvik['IDcvik'] ?>"> <span class="exercise-target"><?php echo $cvik['sval'] ?></span></a>
+                </td>
+                <?php if (isset($_SESSION['admin'])) : ?>
+                  <td class="admin-wrapper">
+                    <span class="adminicons-wrapper">
+                      <a href="./edit.php?id=<?php echo $cvik['IDcvik'] ?>&tb=cviky"><img class="admin-icons" src="./media/icons/edit-admin.png" alt="" /></a>
+                    </span>
+                    <span class="adminicons-wrapper">
+                      <a href="delete-alert.php?id=<?php echo $cvik['IDcvik'] ?>&tb=cviky"><img class="admin-icons" src="./media/icons/delete-admin.png" alt="" /></a>
+                    </span>
+                  </td>
+                <?php endif ?>
               </tr>
             <?php endforeach ?>
           </tbody>

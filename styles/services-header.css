@@ -168,7 +168,7 @@ header .background {
     display: none;
   }
   header .nav-links-container,
-header .nav-links-container.open {
+  header .nav-links-container.open {
     height: 65px;
     align-items: flex-end;
     position: relative;
@@ -183,12 +183,12 @@ header .nav-links-container.open {
     border-bottom: none;
   }
   header .nav-links-container .nav-links,
-header .nav-links-container.open .nav-links {
+  header .nav-links-container.open .nav-links {
     flex-direction: row;
     gap: 4rem;
   }
   header .nav-links-container .nav-links li,
-header .nav-links-container.open .nav-links li {
+  header .nav-links-container.open .nav-links li {
     font-size: 2.5rem;
   }
 }

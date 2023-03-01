@@ -10,12 +10,11 @@
     <link rel="stylesheet" href="./styles/admin_login.css">
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/admin_nav.css">
+
 </head>
 
 <body>
-
     <?php require_once('./components/admin-header.php') ?>
-
     <main>
         <div class="header">
             <h1>ADMIN LOGIN</h1>
@@ -26,11 +25,10 @@
                 <input type="password" placeholder="Heslo" name="pswd">
             </div>
             <div class="submit-button">
-                <input class="btn" type="submit" value="LOGIN">
+                <input class="submit" type="submit" value="LOGIN">
             </div>
         </form>
     </main>
-
 </body>
 
 </html>

@@ -2,14 +2,12 @@
 <html lang="en">
 
 <?php
-require_once("db.php");
+require_once("./php/db.php");
 $id = $_GET["id"] ?? null;
 
 $sql = "SELECT * FROM cviky 
-        JOIN cvikvybavenie ON cvikvybavenie.IDcvik = cviky.IDcvik 
-        JOIN vybavenia ON vybavenia.IDvybavenie = cvikvybavenie.IDvybavenie
-        JOIN svalcvik ON svalcvik.IDcvik = cviky.IDcvik
-        JOIN svaly ON svaly.IDsval = svalcvik.IDsval
+        JOIN vybavenia ON vybavenia.IDvybavenie = cviky.IDvybavenie
+        JOIN svaly ON svaly.IDsval = cviky.IDsval
         WHERE cviky.IDcvik = $id";
 
 $stmt = $conn->prepare($sql);
@@ -34,6 +32,10 @@ foreach ($result as $i) {
   <link rel="stylesheet" href="./styles/cvik.css">
   <link rel="stylesheet" href="./styles/small-footer.css">
 </head>
+
+<?php 
+session_start();
+?>
 
 <body>
   <?php include_once "./components/small-header.php" ?>

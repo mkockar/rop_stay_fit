@@ -1,4 +1,4 @@
- autocomplete="no"<?php
+<?php
 $sql = "SELECT * FROM faq WHERE IDotazka = $id";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -12,10 +12,10 @@ foreach ($result as $i) {
 ?>
 
 <main>
-    <div class="back-button">
+    <a href="faq.php" class="back-button">
         <img src="./media/icons/back-arrow.png" alt="">
-        <a href="faq.php">SPÄŤ NA ZOZNAM OTÁZOK</a>
-    </div>
+        <span>SPÄŤ NA ZOZNAM OTÁZOK</span>
+    </a>
 
     <div class="header">
         <h1>EDIT <br> <strong><?php echo $name ?></strong></h1>

@@ -1,163 +1,141 @@
 @import "colours.scss";
 
 .recipes-main {
-  min-height: 100vh;
-  padding: 5rem 2rem;
-  position: relative;
   .recipes-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    //max-width: 600px;
-    .searchbar {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .search-bar {
-        width: 100%;
-        padding: 5px 0;
-        font-size: 3rem;
-        margin: 10px 0;
-        border: none;
-        border-bottom: 1px solid $outline;
-        outline: none;
-        resize: none;
-        background-color: $main;
-        color: $lightgray;
-        //position: relative;
-      }
-      .placeholder {
-        position: absolute;
-        left: 0;
-        padding: 5px 0;
-        font-size: 3rem;
-        margin: 10px 0;
-        pointer-events: none;
-        transition: 0.7s;
-        color: $lightgray;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          border-bottom: 0.1px solid $outline;
-          transition: 0.5s;
-        }
-        span {
-          font-size: 4rem;
-          transition: 0.7s;
-          color: $lightgray;
-        }
-        img {
-          width: 4rem;
-          transition: 0.7s;
-          align-self: center;
-          height: 100%;
-        }
-      }
-
-      input:focus + .placeholder,
-      input:valid + .placeholder {
-        transform: translateY(-6rem);
-        opacity: 50%;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 6px;
-          left: 0;
-          width: 100%;
-          border-bottom: 0.1px solid $outline;
-          transition: 0.5s;
-        }
-      }
-    }
-
     .recipes-list-wrapper {
-      width: 100%;
-      max-height: 80vh;
-      overflow: hidden;
-      overflow-y: scroll;
       .recipes-list {
-        padding: 0rem;
-        background-color: $main;
-        width: 100%;
-        position: relative;
         .columns-container {
-          //box-shadow: 0 1px 0 $lightgray;
-          background-color: $darkgray;
-          position: sticky;
-          top: 0;
-          z-index: 100;
-          border: 1px solid $lightgray;
-          //left: 100%;
-          tr {
-            display: grid;
-            grid-template-columns: 60% 20% 20%;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            text-align: center;
+          .columns-row {
             .name {
-              color: $lightgray;
-              padding: 3rem 0rem;
               cursor: pointer;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 3rem 0rem;
+              color: $lightgray;
             }
 
             .difficulty,
-            .preptime {
-              color: $lightgray;
+            .preptime,
+            .admin {
               padding: 3rem 0rem;
-              text-align: center;
+              color: $lightgray;
               cursor: pointer;
+              display: none;
+              text-align: center;
             }
           }
 
           @media (min-width: 1200px) {
-            tr {
+            .columns-row {
+              display: grid;
               grid-template-columns: 60% 20% 20%;
+
+              .difficulty,
+              .preptime,
+              .admin {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
             }
           }
         }
+
         tbody {
           tr {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            text-align: center;
             &:nth-child(even) {
               background-color: $darkgray;
             }
-            td {
+
+            .name-wrapper {
+              transition: 0.5s;
+              font-size: 3.5rem;
+              margin-left: 1rem;
               height: 100px;
-              .item-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              a {
                 display: grid;
-                grid-template-columns: 60% 20% 20%;
-                justify-content: space-between;
-                align-items: center;
                 text-decoration: none;
                 padding: 3rem 0rem;
-                // #name {
-                //   text-align: left;
-                // }
+                width: 100%;
+                align-content: center;
+                justify-content: center;
                 .recipe-name {
                   color: $lightgray;
                   transition: 0.5s;
                   font-size: 3.5rem;
                   margin-left: 1rem;
                 }
+              }
+            }
 
-                .recipe-difficulty,
-                .recipe-time {
+            .difficulty-wrapper,
+            .time-wrapper {
+              display: none;
+              color: $lightgray;
+              transition: 0.5s;
+              text-align: center;
+              opacity: 50%;
+              a {
+                display: grid;
+                text-decoration: none;
+                padding: 3rem 0rem;
+                width: 100%;
+                text-align: center;
+                align-content: center;
+                justify-content: center;
+                .recipe-time,
+                .recipe-difficulty {
                   color: $lightgray;
+                  opacity: 50%;
                   transition: 0.5s;
                   text-align: center;
-                  opacity: 50%;
                 }
+              }
+            }
+
+            .adminicons-wrapper {
+              .admin-icons {
+                width: 5rem;
+                transition: 0.5s;
 
                 &:hover {
-                  transition: 0.5s;
+                  transform: scale(1.2);
+                }
+              }
+            }
+
+            @media (min-width: 1200px) {
+              display: grid;
+              grid-template-columns: 60% 20% 20%;
+              .name-wrapper {
+                a {
+                  justify-content: start;
+                }
+              }
+              .difficulty-wrapper,
+              .time-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+
+            &:hover {
+              .name-wrapper {
+                a {
                   .recipe-name {
                     color: $outline;
+                    transition: 0.5s;
                   }
                 }
               }
@@ -197,6 +175,6 @@
   }
 
   @media (min-width: 1200px) {
-    padding: 5rem 15rem;
+    padding: 5rem 10rem;
   }
 }

@@ -20,10 +20,10 @@ foreach ($result as $i) {
 }
 ?>
 <main>
-    <div class="back-button">
+    <a href="vyzivove-hodnoty.php" class="back-button">
         <img src="./media/icons/back-arrow.png" alt="">
-        <a href="vyzivove-hodnoty.php">SPÄŤ NA ZOZNAM POTRAVÍN</a>
-    </div>
+        <span>SPÄŤ NA ZOZNAM POTRAVÍN</span>
+    </a>
     <div class="header">
         <h1>EDIT <strong><?php echo $name ?></strong></h1>
         <div class="underline"></div>
@@ -44,31 +44,31 @@ foreach ($result as $i) {
                 <?php endforeach ?>
             </select>
             <label for="calorie">Kalórie</label>
-            <input type="text" placeholder="Kalórie" name="calorie" id="calorie" value="<?php echo $calorie ?>" autocomplete="no" >
+            <input type="text" placeholder="Kalórie" name="calorie" id="calorie" value="<?php echo $calorie ?>" autocomplete="no">
 
             <label for="protein">Bielkoviny</label>
-            <input type="text" placeholder="Bielkoviny" name="protein" id="protein" value="<?php echo $protein ?>" autocomplete="no" >
+            <input type="text" placeholder="Bielkoviny" name="protein" id="protein" value="<?php echo $protein ?>" autocomplete="no">
 
             <label for="fat">Tuky</label>
-            <input type="text" placeholder="Tuky" name="fat" id="fat" value="<?php echo $fat ?>" autocomplete="no" >
+            <input type="text" placeholder="Tuky" name="fat" id="fat" value="<?php echo $fat ?>" autocomplete="no">
 
             <label for="carbohydrates">Sacharidy</label>
             <input type="text" placeholder="Sacharidy" name="carbohydrates" id="carbohydrates" value="<?php echo $carbohydrates ?>" autocomplete="no">
 
             <label for="sodium">Sodík</label>
-            <input type="text" placeholder="Sodík" name="sodium" id="sodium" value="<?php echo $sodium ?>" autocomplete="no" >
+            <input type="text" placeholder="Sodík" name="sodium" id="sodium" value="<?php echo $sodium ?>" autocomplete="no">
 
             <label for="calcium">Vápnik</label>
-            <input type="text" placeholder="Vápnik" name="calcium" id="calcium" value="<?php echo $calcium ?>" autocomplete="no" >
+            <input type="text" placeholder="Vápnik" name="calcium" id="calcium" value="<?php echo $calcium ?>" autocomplete="no">
 
             <label for="potassium">Draslík</label>
-            <input type="text" placeholder="Draslík" name="potassium" id="potassium" value="<?php echo $potassium ?>" autocomplete="no" >
+            <input type="text" placeholder="Draslík" name="potassium" id="potassium" value="<?php echo $potassium ?>" autocomplete="no">
 
             <label for="magnesium">Horčík</label>
-            <input type="text" placeholder="Horčík" name="magnesium" id="magnesium" value="<?php echo $magnesium ?>" autocomplete="no" >
+            <input type="text" placeholder="Horčík" name="magnesium" id="magnesium" value="<?php echo $magnesium ?>" autocomplete="no">
 
             <label for="phosphorus">Fosfor</label>
-            <input type="text" placeholder="Fosfor" name="phosphorus" id="phosphorus" value="<?php echo $phosphorus ?>" autocomplete="no" >
+            <input type="text" placeholder="Fosfor" name="phosphorus" id="phosphorus" value="<?php echo $phosphorus ?>" autocomplete="no">
 
             <div class="image-container">
                 <h1>AKTUÁLNY OBRÁZOK</h1>

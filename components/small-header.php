@@ -46,6 +46,15 @@
             <div class="name">FAQ</div>
           </a>
         </li>
+
+        <?php if (isset($_SESSION['admin'])) : ?>
+          <li>
+            <a class="link" href="./php/logout.php">
+              <img src="media/icons/admin-nav.png" alt="" />
+              <div class="name">ODHLÁSIŤ</div>
+            </a>
+          </li>
+        <?php endif ?>
       </ul>
     </div>
   </div>

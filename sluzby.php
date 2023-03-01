@@ -11,7 +11,12 @@
   <link rel="stylesheet" href="styles/nav.css" />
   <link rel="stylesheet" href="styles/services.css" />
   <link rel="stylesheet" href="styles/footer.css" />
+
 </head>
+
+<?php
+session_start();
+?>
 
 <body>
   <nav class="header">

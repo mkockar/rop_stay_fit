@@ -4,7 +4,7 @@ function search() {
   let productName = document.getElementsByTagName("span");
 
   for (var i = 0; i <= productName.length; i++) {
-    let a = product[i].getElementsByTagName("span")[0];
+    let a = product[i].getElementsByTagName("tr")[0];
     //const b = a.getElementsByClassName(".product-name")[0];
     //console.log(a);
     let value = a.innerHTML || a.innerText || a.textContent;

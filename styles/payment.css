@@ -227,3 +227,6 @@ body .payment-form-wrapper .form-wrapper .input-wrapper .card-details-wrapper .d
   justify-content: center;
   align-items: end;
 }
+body .payment-form-wrapper .form-wrapper .input-wrapper .order-sumary span {
+  color: #8dc63f;
+}

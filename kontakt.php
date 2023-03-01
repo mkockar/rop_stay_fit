@@ -20,6 +20,7 @@ if (isset($_POST['send'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KONTAKTUJ MA</title>
 
+  <!-- <link rel="icon" href="./media/.jpg"> -->
   <link rel="stylesheet" href="styles/layout.css" />
   <link rel="stylesheet" href="styles/nav.css" />
   <link rel="stylesheet" href="styles/contact.css" />

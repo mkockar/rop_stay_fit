@@ -6,8 +6,25 @@
   flex-direction: column;
   align-items: center;
 }
+.faq-main .add-button a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.faq-main .add-button a img {
+  width: 5rem;
+  transition: 0.5s;
+}
+.faq-main .add-button a span {
+  color: #e5e5e0;
+}
+.faq-main .add-button a:hover img {
+  transform: scale(1.2);
+}
 .faq-main .faq {
-  max-width: 80%;
+  width: 80%;
   padding: 2rem;
   border-bottom: 2px solid #8dc63f;
   cursor: pointer;
@@ -25,10 +42,20 @@
   color: #e5e5e0;
   transition: color 0.5s;
 }
-.faq-main .faq .question svg {
+.faq-main .faq .question .admin-buttons a {
+  text-decoration: none;
+}
+.faq-main .faq .question .admin-buttons a img {
+  width: 5rem;
+  transition: 0.5s;
+}
+.faq-main .faq .question .admin-buttons a img:hover {
+  transform: scale(1.2);
+}
+.faq-main .faq .question .arrow svg {
   transition: transform 0.5s ease-in;
 }
-.faq-main .faq .question svg path {
+.faq-main .faq .question .arrow svg path {
   transition: stroke 0.5s ease-out;
 }
 .faq-main .faq .answer {
@@ -57,4 +84,8 @@
 .faq-main .faq.active .answer {
   max-height: 1000px;
   transition: max-height 1.4s ease;
+}
+.faq-main .faq:hover .question .title {
+  color: #8dc63f;
+  transition: 0.5s;
 }

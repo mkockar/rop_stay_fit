@@ -1,0 +1,67 @@
+@import "colours.scss";
+
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .searchbar {
+    position: relative;
+    max-width: 400px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .search-bar {
+      padding: 5px 0;
+      font-size: 3rem;
+      margin: 10px 0;
+      border: none;
+      border-bottom: 1px solid $outline;
+      outline: none;
+      resize: none;
+      background-color: $main;
+      color: $lightgray;
+    }
+    .placeholder {
+      position: absolute;
+      left: 0;
+      padding: 5px 0;
+      font-size: 3rem;
+      margin: 10px 0;
+      pointer-events: none;
+      transition: 0.7s;
+      color: $lightgray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      span {
+        font-size: 4rem;
+        transition: 0.7s;
+        color: $lightgray;
+      }
+      .button {
+        cursor: pointer;
+        position: relative;
+        z-index: 1000;
+      }
+    }
+
+    input:focus + .placeholder,
+    input:valid + .placeholder {
+      transform: translateY(-6rem);
+      opacity: 50%;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 6px;
+        left: 0;
+        width: 100%;
+        border-bottom: 0.1px solid $outline;
+        transition: 0.5s;
+      }
+    }
+  }
+}

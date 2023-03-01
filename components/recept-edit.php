@@ -20,10 +20,10 @@ foreach ($result as $i) {
 ?>
 
 <main>
-    <div class="back-button">
+    <a href="recepty.php" class="back-button">
         <img src="./media/icons/back-arrow.png" alt="">
-        <a href="recepty.php">SPÄŤ NA ZOZNAM RECEPTOV</a>
-    </div>
+        <span>SPÄŤ NA ZOZNAM RECEPTOV</span>
+    </a>
     <div class="header">
         <h1>EDIT <strong><?php echo $name ?></strong></h1>
     </div>
@@ -34,7 +34,7 @@ foreach ($result as $i) {
 
             <label for="calorie">Kalórie</label>
             <input type="number" placeholder="Kalórie" name="calorie" id="calorie" value="<?php echo $calorie ?>" autocomplete="no">
-            
+
             <label for="protein">Bielkoviny</label>
             <input type="number" placeholder="Bielkoviny" name="protein" id="protein" value="<?php echo $protein ?>" autocomplete="no">
 

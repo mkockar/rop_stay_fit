@@ -18,7 +18,7 @@ foreach ($result as $i) {
         </h1>
 
         <div class="options-delete">
-            <a href="php/delete.php?id=<?php echo $id ?>&tb=faq">ÁNO
+            <a href="php/delete.php?id=<?php echo $id ?>&tb=faq"><img class="admin-icons">ÁNO
             </a>
             <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>">NIE</a>
         </div>

@@ -3,8 +3,6 @@ const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
 const email = document.getElementById("email");
 const msg = document.getElementById("msg");
-// const successMsg = document.getElementsByClassName("success-msg");
-// const countSuccess = 0;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -25,7 +23,6 @@ function checkInputs() {
   } else {
     //add success class
     setSuccessFor(fname);
-    //countSuccess++;
   }
 
   if (lnameValue === "") {
@@ -34,7 +31,6 @@ function checkInputs() {
   } else {
     //add success class
     setSuccessFor(lname);
-    //countSuccess++;
   }
 
   if (emailValue === "") {
@@ -43,19 +39,13 @@ function checkInputs() {
     setErrorFor(email, "Prosím použi platnú e-mailovú adresu");
   } else {
     setSuccessFor(email);
-    //countSuccess++;
   }
 
   if (msgValue.length < 20) {
     setErrorFor(msg, "Správa musí obsahovať minimálne 20 znakov");
   } else {
     setSuccessFor(msg);
-    //countSuccess++;
   }
-
-//   if (countSuccess === 4) {
-//     successMsg.className = 'success-msg success';
-//   }
 }
 
 function setErrorFor(input, message) {

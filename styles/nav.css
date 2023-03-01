@@ -247,7 +247,7 @@
     align-items: flex-end;
   }
   .header .navbar .links-container,
-.header .navbar .links-container.open {
+  .header .navbar .links-container.open {
     align-items: flex-start;
     justify-content: start;
     background-color: transparent;
@@ -259,19 +259,19 @@
     padding: 0;
   }
   .header .navbar .links-container .nav-links,
-.header .navbar .links-container.open .nav-links {
+  .header .navbar .links-container.open .nav-links {
     flex-direction: row;
     gap: 5rem;
   }
   .header .navbar .links-container .nav-links li a,
-.header .navbar .links-container.open .nav-links li a {
+  .header .navbar .links-container.open .nav-links li a {
     position: relative;
     text-decoration: none;
     color: #e5e5e0;
     align-self: center;
   }
   .header .navbar .links-container .nav-links li a:after,
-.header .navbar .links-container.open .nav-links li a:after {
+  .header .navbar .links-container.open .nav-links li a:after {
     content: "";
     position: absolute;
     background: transparent;
@@ -283,29 +283,29 @@
     display: block;
   }
   .header .navbar .links-container .nav-links li a:hover,
-.header .navbar .links-container.open .nav-links li a:hover {
+  .header .navbar .links-container.open .nav-links li a:hover {
     transition: 0.5s;
   }
   .header .navbar .links-container .nav-links li a:hover:hover:after,
-.header .navbar .links-container.open .nav-links li a:hover:hover:after {
+  .header .navbar .links-container.open .nav-links li a:hover:hover:after {
     width: 100%;
     background: #8dc63f;
   }
   .header .navbar .links-container .nav-links li a img,
-.header .navbar .links-container.open .nav-links li a img {
+  .header .navbar .links-container.open .nav-links li a img {
     width: 4rem;
     padding-bottom: 10px;
     filter: invert(100%);
   }
   .header .navbar .links-container .nav-links li a .name,
-.header .navbar .links-container.open .nav-links li a .name {
+  .header .navbar .links-container.open .nav-links li a .name {
     min-width: 70px;
   }
   .header .navbar .burger-menu {
     display: none;
   }
   .header .background,
-.header .background.black {
+  .header .background.black {
     transform: translateX(0);
   }
 }

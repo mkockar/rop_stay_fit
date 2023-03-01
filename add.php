@@ -5,6 +5,11 @@
 require_once('./php/db.php');
 session_start();
 
+
+
+
+
+
 function test_input($data)
 {
     $data = trim($data);
@@ -28,7 +33,6 @@ if (isset($_SESSION['admin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADD</title>
 
-    <!-- <link rel="stylesheet" href="./styles/admin_login.css"> -->
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/admin_nav.css">
     <link rel="stylesheet" href="./styles/admin_forms.css">

@@ -2,10 +2,11 @@
 <html lang="en">
 
 <?php
-require_once("db.php");
+session_start();
+require_once("./php/db.php");
 $id = $_GET["id"] ?? null;
 
-$sql = "SELECT * FROM potraviny JOIN typypotravin ON typypotravin.IDtyp = potraviny.IDtyp WHERE IDpotravina = $id";
+$sql = "SELECT * FROM potraviny JOIN typypotravin ON typypotravin.IDtyp = potraviny.IDtyp WHERE ID = $id";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();

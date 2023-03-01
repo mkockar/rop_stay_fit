@@ -2,10 +2,11 @@
 <html lang="en">
 
 <?php
-require_once("db.php");
-$id = $_GET["id"] ?? null;
+session_start();
+require_once("./php/db.php");
+$id = $_GET["id"];
 
-$sql = "SELECT * FROM recepty JOIN ingrediencie ON ingrediencie.IDrecept = recepty.IDrecept WHERE recepty.IDrecept = $id || recepty.IDrecept = ingrediencie.IDrecept";
+$sql = "SELECT * FROM recepty JOIN ingrediencie ON ingrediencie.IDrecept = recepty.IDrecept WHERE recepty.IDrecept = $id || ingrediencie.IDrecept = $id";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();

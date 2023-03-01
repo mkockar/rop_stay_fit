@@ -14,7 +14,7 @@
 </head>
 
 <?php
-require_once("db.php");
+require_once("./php/db.php");
 
 $sql = "SELECT * FROM balicek";
 
@@ -43,8 +43,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <main class="eshop">
     <div class="container">
-      <div class="cards">
-        <?php foreach ($result as $balicek) : ?>
+
+      <form action="payment.php" method="post" >
+        <div class="cards-membership">
           <div class="card" id="bronze">
             <div class="inside">
               <div class="top-strip">
@@ -55,8 +56,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <img src="media/icons/about-me-nav.png" alt="" />
                 </div>
                 <div class="name">
-                  <h1><?php echo $balicek['nazovBalicka'] ?></h1>
-                  <div class="price"><?php echo $balicek['cena'] ?>€</div>
+                  <h1>Bronzový balíček</h1>
+                  <div class="price">xxx€</div>
                 </div>
                 <div class="list">
                   <ul>
@@ -82,102 +83,105 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </li>
                   </ul>
                   <div class="button">
-                    <div>ZAKÚPIŤ</div>
+                    <input type="text" name="product" value="Bronzový balíček" hidden>
+                    <input type="text" name="price" value="100€" hidden>
+                    <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <?php endforeach ?>
 
-        <!-- <div class="card" id="platinum">
-          <div class="inside">
-            <div class="top-strip">
-              <div class="strip"></div>
+          <div class="card" id="platinum">
+            <div class="inside">
+              <div class="top-strip">
+                <div class="strip"></div>
+              </div>
+              <div class="content">
+                <div class="icon">
+                  <img src="media/icons/about-me-nav.png" alt="" />
+                </div>
+                <div class="name">
+                  <h1>PLATINOVÝ BALÍČEK</h1>
+                  <div class="price">xxx€</div>
+                </div>
+                <div class="list">
+                  <ul>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                  </ul>
+                  <div class="button">
+                    <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="content">
-              <div class="icon">
-                <img src="media/icons/about-me-nav.png" alt="" />
+          </div>
+
+          <div class="card" id="gold">
+            <div class="inside">
+              <div class="top-strip">
+                <div class="strip"></div>
               </div>
-              <div class="name">
-                <h1>PLATINOVÝ BALÍČEK</h1>
-                <div class="price">xxx€</div>
-              </div>
-              <div class="list">
-                <ul>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                </ul>
-                <div class="button">
-                  <div>ZAKÚPIŤ</div>
+              <div class="content">
+                <div class="icon">
+                  <img src="media/icons/about-me-nav.png" alt="" />
+                </div>
+                <div class="name">
+                  <h1>ZLATÝ BALÍČEK</h1>
+                  <div class="price">xxx€</div>
+                </div>
+                <div class="list">
+                  <ul>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                    <li>
+                      <img src="media/icons/eshop-cards-dash.png" alt="" />
+                      <div>lorem</div>
+                    </li>
+                  </ul>
+                  <div class="button">
+                    <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </form>
 
-        <div class="card" id="gold">
-          <div class="inside">
-            <div class="top-strip">
-              <div class="strip"></div>
-            </div>
-            <div class="content">
-              <div class="icon">
-                <img src="media/icons/about-me-nav.png" alt="" />
-              </div>
-              <div class="name">
-                <h1>ZLATÝ BALÍČEK</h1>
-                <div class="price">xxx€</div>
-              </div>
-              <div class="list">
-                <ul>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                  <li>
-                    <img src="media/icons/eshop-cards-dash.png" alt="" />
-                    <div>lorem</div>
-                  </li>
-                </ul>
-                <div class="button">
-                  <div>ZAKÚPIŤ</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
     </div>
   </main>
 

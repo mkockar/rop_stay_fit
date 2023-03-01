@@ -1,8 +1,8 @@
 <main>
-    <div class="back-button">
+    <a href="cviky.php" class="back-button">
         <img src="./media/icons/back-arrow.png" alt="">
-        <a href="cviky.php">SPÄŤ NA ZOZNAM CVIKOV</a>
-    </div>
+        <span>SPÄŤ NA ZOZNAM CVIKOV</span>
+    </a>
     <div class="header">
         <h1>PRIDAJ CVIK</h1>
     </div>

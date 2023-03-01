@@ -22,10 +22,10 @@
           <a href="" class="link"><img src="./media/icons/instagram-footer.png" alt="" class="icon" /></a>
         </li>
         <li>
-          <a href="" class="link"><img src="./media/icons/email-footer.png" alt="" class="icon" /></a>
+          <a href="" class="link"><img src="./media/icons/email-nav.png" alt="" class="icon" /></a>
         </li>
         <li>
-          <a href="" class="link"><img src="./media/icons/phone-footer.png" alt="" class="icon" /></a>
+          <a href="" class="link"><img src="./media/icons/phone-nav.png" alt="" class="icon" /></a>
         </li>
       </ul>
     </div>

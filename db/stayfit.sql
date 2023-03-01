@@ -1,85 +1,70 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
 CREATE DATABASE IF NOT EXISTS `stayfit` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_slovak_ci;
 USE `stayfit`;
 
+CREATE TABLE IF NOT EXISTS `admin` (
+  `IDadmin` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(20) COLLATE utf8mb4_slovak_ci NOT NULL,
+  `pswd` varchar(20) COLLATE utf8mb4_slovak_ci NOT NULL,
+  `role` varchar(20) COLLATE utf8mb4_slovak_ci NOT NULL,
+  PRIMARY KEY (`IDadmin`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
-CREATE TABLE `balicek` (
-  `IDbalicek` int(11) NOT NULL,
+INSERT INTO `admin` (`IDadmin`, `login`, `pswd`, `role`) VALUES
+(1, 'admin', 'admin', '');
+
+CREATE TABLE IF NOT EXISTS `balicek` (
+  `IDbalicek` int(11) NOT NULL AUTO_INCREMENT,
   `nazovBalicka` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
-  `cena` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
+  `cena` int(11) NOT NULL,
+  PRIMARY KEY (`IDbalicek`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
 INSERT INTO `balicek` (`IDbalicek`, `nazovBalicka`, `cena`) VALUES
 (1, 'Zlatý balíček', 200),
 (2, 'Platinový balíček', 300),
 (3, 'Bronzový balíček', 100);
 
-
-CREATE TABLE `baliceksluzby` (
+CREATE TABLE IF NOT EXISTS `baliceksluzby` (
   `IDbalicek` int(11) NOT NULL,
-  `IDsluzba` int(11) NOT NULL
+  `IDsluzba` int(11) NOT NULL,
+  PRIMARY KEY (`IDbalicek`,`IDsluzba`),
+  KEY `IDsluzba` (`IDsluzba`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
-
-CREATE TABLE `cvikvybavenie` (
-  `IDcvik` int(11) NOT NULL,
-  `IDvybavenie` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
-
-INSERT INTO `cvikvybavenie` (`IDcvik`, `IDvybavenie`) VALUES
-(1, 1),
-(2, 5),
-(3, 1),
-(4, 2),
-(5, 1),
-(6, 2),
-(7, 1),
-(8, 1),
-(9, 1),
-(10, 2),
-(11, 1),
-(12, 1),
-(13, 1),
-(14, 2),
-(15, 6);
-
-
-CREATE TABLE `cviky` (
-  `IDcvik` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cviky` (
+  `IDcvik` int(11) NOT NULL AUTO_INCREMENT,
   `cvik` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
-  `postup` text COLLATE utf8mb4_slovak_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
+  `postup` text COLLATE utf8mb4_slovak_ci NOT NULL,
+  `IDsval` int(11) NOT NULL,
+  `IDvybavenie` int(11) NOT NULL,
+  PRIMARY KEY (`IDcvik`),
+  KEY `IDsval` (`IDsval`),
+  KEY `IDvybavenie` (`IDvybavenie`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
+INSERT INTO `cviky` (`IDcvik`, `cvik`, `postup`, `IDsval`, `IDvybavenie`) VALUES
+(1, 'Diamantové kliky', 'Srovnáme se do základní polohy kliku s lokty opřenými o hrudník a dlaně jsou pod tělem u sebe. Nejsme nijak prohlí ani ohlí. Máme zpevněné lopatky i celý spodek těla.\r\nS nádechem začneme klesat kontrolovaným tempem směrem k zemi. Zastavíme se pár centimetrů nad zemí, kde se na malou chvíli zastavíme a potom s výdechem vystartujeme zpátky do původní pozice. Soustřeďte se na vykonávání celého pohybu za pomocí tricepsů.\r\nDole budou protažené a ve vrchní části pohybu je pořádně zatneme.', 7, 1),
+(2, 'Dipy na bradlách', 'Postavíme se k bradlům, která jsou trochu širší. Pokud bychom měli ruce příliš u těla, zapojovali bychom hodně tricepsy.\r\nPo celou dobu pohybu budeme myslet na zpevněný střed těla, mírně vyšpulený hrudník a scvaklé lopatky. Díváme se rovně před sebe.\r\nLokty nebudeme tlačit úplně k tělu, protože tak bychom zapojili přednostně triceps. Lokty budeme tlačit lehce od těla.\r\nNohy nebudeme tlačit dopředu, abychom byli co nejrovnější, to by opět zapojilo přednostně tricepsy. Můžeme nechat tělo mírně v náklonu.\r\nVyskočíme nahoru, zpevníme se. S nádechem začneme klesat tak hluboko, jak nám to mobilita ramen dovolí a snažíme se soustředit na zapojení a protažení prsního svalstva.\r\nPo dosažení maximální hloubky bez porušení zpevnění těla začneme pomyslným tlakem loktů k tělu a soustředěním se na kontrakci hrudníku stoupat směrem vzhůru do startovní pozice.\r\nVáhu přidávejte s rozumem. Musíte mít nejprve vychytanou techniku. Neriskujte zbytečně poranění.\r\nČím více je hrudník během cvičení předkloněn, tím více se posilují dolní vlákna velkého svalu prsního. Naopak, čím svislejší je při pohybu poloha trupu, tím více se zapojuje trojhlavý sval pažní. Tento cvik je výborný na strečink velkého svalu prsního a pro zvyšování ohebnosti pletence ramenního, nehodí se však pro začátečníky, protože vyžaduje jistou dávku síly. Za účelem dosažení větší síly a objemu svalů si zdatní jedinci mohou na břicho připnout opasek s přídatnou zátěží, popřípadě na nohy dodatečná závaží.', 7, 5),
+(3, 'Drep s výskokom', 'Postavíme se na šíři našich ramen a vytočíme špičky mírně směrem ven. \r\nPředpažíme, abychom usnadnili rozložení váhy a lépe drželi balanci. \r\nPohyb začneme provádět tak, že si pomyslně představíme lavičku kousek za námi a budeme si na ni chtít sednout. \r\nPohyb začne první vycházet pohybem hýždí směrem vzad. Mírně se začneme předklánět a po chvilce začneme klesat směrem dolu i s pokrčením v kolenou. Naše kyčle, kolena a celé tělo musí pracovat dohromady. \r\nJakmile dosáhneme spodní pozice, tak s výdechem obrátíme celý postup a pokusíme se vyskočit směrem vzhůru, jako kdybychom chtěli vyskočit na nějakou zídku a můžeme ve vzduchu i lehce přitáhnout kolena směrem vzhůru.\r\nMyslete na rovná záda, nepropadající se kolena ani kotníky. Pokuste se dopadnout do stejné pozice, ve které jsme startovali. Nespěchejte, znovu se srovnejte a pohyb vykonejte poctivě zcela od začátku.', 6, 1),
+(4, 'Glute bridge', 'Lehneme si na záda, pokrčíme nohy přibližně do 90 stupňů. \r\nRuce jsou opřené o zem, stejně jako chodidla. Máme v nich pevnou podporu společně s vrchní částí našich zad. \r\nPohyb začne vycházet v kyčlích. Tlačíme je s výdechem směrem vzhůru do stropu tak vysoko, jak to jen půjde. \r\nAž se dostaneme do maximální pozice, hýždě zatneme a pohyb obrátíme s nádechem do původní pozice. \r\nOpakujeme podle počtu požadovaných opakování, v klidu s kontrolovaně, bez zbytečných škubavých pohybů.', 15, 2),
+(5, 'Klasický klik', 'Zapojíme kromě prsou i triceps, ramena, stabilizační svalstvo, střed těla.\r\nDostaneme se do základní pozice kliku a začneme se srovnávat\r\nJsme opření o dlaně, dlaně jsou přibližně 5-10 cm dál než naše ramena. Lokty svírají s tělem přibližně 45 stupňový úhel.\r\nSesadíme a scvakneme lopatky směrem k sobě, abychom stabilizovali vršek těla, měli ramena ve zdravé pozici a vystavili hrudník k práci. Za žádných okolností nebudeme tuto pozici uvolňovat a dokončovat část pohybu na úkor posunutí ramen.\r\nZpevníme břišní svalstvo a budeme v neutrální pozici. Nebudeme ohlí ani prohlí.\r\nZatneme hýždě a stehna. Tím stabilizujeme i zbytek těla a pomůže nám to držet pevnou a stabilní polohu těla.\r\nS nádechem začneme pomalu klesat směrem k zemi až do protažení prsních svalů. V této pozici můžeme půl sekundy setrvat. S výdechem a s pomyslným tlačením loktů směrem k sobě začneme stoupat směrem od země do původní polohy, kde opět můžeme na půl sekundy zůstat a prsní svalstvo zatnout\r\nSnažíme se zapojit prsní svalstvo. Představujeme si jeho práci.', 7, 1),
+(6, 'Klik na kolenách', 'Méně náročná varianta klasického kliku. Zapojení svalů je podobné. Nebude tak těžké udržet stabilitu těla.\r\nZapojíme kromě prsou i triceps, ramena, stabilizační svalstvo, střed těla.\r\nDostaneme se do základní pozice kliku a začneme se srovnávat s dlaněmi a koleny na zemi.\r\nJsme opření o dlaně, dlaně jsou přibližně 5-10 cm dál než naše ramena. Lokty svírají s tělem přibližně 45 stupňový úhel.\r\nSesadíme a scvakneme lopatky směrem k sobě, abychom stabilizovali vršek těla, měli ramena ve zdravé pozici a vystavili hrudník k práci. Za žádných okolností nebudeme tuto pozici uvolňovat a dokončovat část pohybu na úkor posunutí ramen.\r\nZpevníme břišní svalstvo a budeme v neutrální pozici. Nebudeme ohlí ani prohlí.\r\nZatneme hýždě a stehna. Tím stabilizujeme i zbytek těla a pomůže nám to držet pevnou a stabilní polohu těla. Tato část bude oproti klasickému kliku jednodušší.\r\nS nádechem začneme pomalu klesat směrem k zemi až do protažení prsních svalů. V této pozici můžeme půl sekundy setrvat. S výdechem a s pomyslným tlačením loktů směrem k sobě začneme stoupat směrem od země do původní polohy, kde opět můžeme na půl sekundy zůstat a prsní svalstvo zatnout\r\nSnažíme se zapojit prsní svalstvo. Představujeme si jeho práci.', 7, 2),
+(7, 'Klik na úzko', 'Srovnáme se do základní polohy kliku s lokty opřenými o hrudník a dlaněmi na šíři ramen. \r\nNejsme nijak prohlí ani prohlí. Máme zpevněné lopatky i celý spodek těla.\r\nS nádechem začneme klesat kontrolovaným tempem směrem k zemi. Zastavíme se pár centimetrů nad zemí, kde se na malou chvíli zastavíme a potom s výdechem vystartujeme zpátky do původní pozice. \r\nSoustřeďte se na vykonávání celého pohybu za pomocí tricepsů. Dole budou protažené a ve vrchní části pohybu je pořádně zatneme.\r\nOpakujeme podle počtu požadovaných opakování', 3, 1),
+(8, 'Klik s nohami na lavičke', 'Těžší varianta oproti klasickému kliku. Přesuneme větší nápor na vršek hrudníku a ramena, což bývají malinko slabší části. Méně zapojíme spodek hrudníku.\r\nZapojíme kromě prsou i triceps, ramena, stabilizační svalstvo a střed těla.\r\nDostaneme se do základní pozice kliku a začneme se srovnávat dlaněmi na zemi a s nohami na lavičce.\r\nJsme opření o dlaně, dlaně jsou přibližně 5-10 cm dál než naše ramena. Lokty svírají s tělem přibližně 45 stupňový úhel.\r\nSesadíme a scvakneme lopatky směrem k sobě, abychom stabilizovali vršek těla, měli ramena ve zdravé pozici a vystavili hrudník k práci. Za žádných okolností nebudeme tuto pozici uvolňovat a dokončovat část pohybu na úkor posunutí ramen.\r\nZpevníme břišní svalstvo a budeme v neutrální pozici. Nebudeme ohlí ani prohlí.\r\nZatneme hýždě a stehna. Tím stabilizujeme i zbytek těla a pomůže nám to držet pevnou a stabilní polohu těla.\r\nS nádechem začneme pomalu klesat směrem k zemi až do protažení prsních svalů. V této pozici můžeme půl sekundy setrvat. S výdechem a s pomyslným tlačením loktů směrem k sobě začneme stoupat směrem od země do původní polohy, kde opět můžeme na půl sekundy zůstat a prsní svalstvo zatnout\r\nSnažíme se zapojit prsní svalstvo. Představujeme si jeho práci.', 7, 1),
+(9, 'Plank na lakťoch', 'Mírně pokročilá varianta planku. Zaujmeme polohu kliku, avšak s opřením na loktech. Tato verze je náročnější než základní pozice v kliku.\r\nZpevníme celou postavu. Zatneme břicho, hýždě a spodní záda. Celé tělo udržujeme v rovné linii. Neprohýbáme se ani směrem dolu, ani směrem nahoru. Snažíme se naučit tělo stabilizovat pouze ve správné pozici.\r\nPohled směřujeme do země tak, aby hlava byla v prodloužení páteře. Nedíváme se ani dopředu, ani příliš do země.\r\nV této pozici setrváme dle dispozic jedince v rozmezí 15 až 30 sekund.\r\nPokud je cvik pro vás lehký, je možné, aby vám sparing partner přidal závaží na oblast pánve.\r\nSprávným provedením tohoto cvičení zpevňujeme střed těla a tím pádem potenciálně zlepšujeme výkony u komplexních cviků jako jsou mrtvé tahy, dřepy a tlaky. Zároveň můžeme odstranit bolesti v této oblasti.\r\nNesnažte se posouvat na vyšší level plankových pozic, pokud nezvládáte techniku klasického planku. Výsledek takových pokusů je vám většinou akorát na škodu pro vaše zdraví.', 1, 1),
+(10, 'Superman', 'Lehneme si na břicho, nohy máme pár centimetrů od sebe a ruce natažené směrem dopředu. Vše leží na zemi. Pohled směruje vpřed.\r\nS výdechem zvedneme nohy pár centimetrů do vzduchu, současně s tím i naše ruce. Ruce se snažíme tlačit i mírně dopředu.\r\nVe zvednuté pozici zůstaneme na 2-3 sekund a potom ses nádechem vracíme do původní polohy na zem.\r\nSnažte se cvik vykonávat pomalu, kontrolovaně a opravdu dávejte důraz na podržení zvednuté pozici. ', 10, 2),
+(11, 'Výpady vzad', 'Postavíme se na šíři našich ramen a zúžíme ho o 10 cm. Stojíme pěkně rovně.\r\nPohyb začneme provádět tak, že si pomyslně představíme něco na naší botě a chceme se k tomu dostat. Pohyb začne první vycházet pohybem hýždí směrem vzad, následně se začneme předklánět a jednou nohou začneme zakročovat směrem vzad.\r\nTím začneme klesat až do spodní pozice. Po dosažení spodní pozice celý pohyb obrátíme a dostaneme se do původní pozice. Kde můžeme nohu, na které celou dobu stojíme pořádně zatnout. Můžete opakovat pořád na stejnou stranu a nebo strany střídat.\r\nMyslete na rovná záda, nepropadající se kolena ani kotníky. Pokuste se dostat do stejné pozice, ve které jsme startovali.', 6, 1),
+(12, 'Sumo drepy', 'Sumo dřep začínáš ve stoje\r\nzpevni záda a břicho, hlava je vzpřímená a pohled míří dopředu\r\nnohy dej od sebe. Šířka rozestupu je víc jak šířka ramen.\r\nšpičky chodidel vytoč mírně ven\r\nPOHYB DOLE: pánev směřuje dolů k podložce\r\nruce jsou volně podél těla\r\npři pohybu dolů se nadechuješ\r\nnejnižší poloha je, když jsou stehna rovnoběžně s podložkou. Správně zvolený rozestup ti nedovolí jít s pánvi níže.\r\nPOHYB HORE: z nejnižší polohy jdi nahoru opět do základní pozice\r\npři pohybu nahoru pokrč ruce a sepni je v úrovni hrudníku\r\npři pohybu nahoru vydechuj', 6, 1),
+(13, 'Výpady', 'Postavte sa rovno, vystrite chrbát a urobte jednou nohou krok vpred. Nohy by spolu so zemou mali tvoriť trojuholník. Každá noha by so zemou mala zvierať uhol približne o veľkosti 45°.\r\nPokľaknite si zadnou nohou k zemi tak, aby vaše predné koleno dosiahlo úroveň prstov na nohe. Nemusíte sa však báť, ak presiahnete úroveň prstov, je to otázka flexibility nášho tela.\r\nPamätajte, že pokľaknutie by nemalo byť úplné. Koleno zadnej nohy by sa nemalo dotknúť zeme. Môžete ho mierne zohnúť. Pri správnej technike by ste mali pocítiť kvadricepsy na zadnej nohe. V spodnej polohe by mali byť obe kolená zohnuté približne do 90° uhlu.\r\nZdvihnite sa na päte prednej nohy a urobte krok vzad – dostanete sa tak do pôvodnej polohy, v akej ste začínali. Mali by ste cítiť gluteály a kvadricepsy. Nezabudnite vždy precvičiť aj druhú nohu.', 6, 1),
+(14, 'Skracovačky', 'Ľahnite si na chrbát. Prekrížte si ruky na hrudníku a nohy majte pokrčené v kolenách a chodidlá na zemi. Vykonajte kontrakciu brušných svalov tak, aby sa trup \"zbalil\" smerom dopredu. Pohyb vykonávajte iba minimálny, vychádzajúci hlavne z brucha. Nikdy sa nesnažte pohyb vykonávať švihom. Snažte sa lopatky zdvíhať pomaly a maximálne kontrahujte brušné svaly.', 1, 2),
+(15, 'Zhyby podhmatom', 'Pozdvihneme sa a podhmatom uchopíme hrazdu tak, že ruky sú od seba vzdialené menej ako je šírka ramien. Nohy zdvihneme z podlahy a pre lepší balans ich pokrčíme v kolenách. Pri počiatočnej polohe na hrazde visíme s vystretými rukami. Následne sa zdvíhame hore tak, že k hrazde približujeme hrudník, ktorý počas pohybu vypíname vpred. V chrbát sa prehýbame vzad a do vrchnej pozície dorazíme vtedy, ak je brada aspoň na úrovni hrazdy. Potom sa môžeme pomaly spustiť do počiatočnej pozície.', 2, 6);
 
-INSERT INTO `cviky` (`IDcvik`, `cvik`, `postup`) VALUES
-(1, 'Diamantové kliky', 'Srovnáme se do základní polohy kliku s lokty opřenými o hrudník a dlaně jsou pod tělem u sebe. Nejsme nijak prohlí ani ohlí. Máme zpevněné lopatky i celý spodek těla.\r\nS nádechem začneme klesat kontrolovaným tempem směrem k zemi. Zastavíme se pár centimetrů nad zemí, kde se na malou chvíli zastavíme a potom s výdechem vystartujeme zpátky do původní pozice. Soustřeďte se na vykonávání celého pohybu za pomocí tricepsů.\r\nDole budou protažené a ve vrchní části pohybu je pořádně zatneme.'),
-(2, 'Dipy na bradlách', 'Postavíme se k bradlům, která jsou trochu širší. Pokud bychom měli ruce příliš u těla, zapojovali bychom hodně tricepsy.\r\nPo celou dobu pohybu budeme myslet na zpevněný střed těla, mírně vyšpulený hrudník a scvaklé lopatky. Díváme se rovně před sebe.\r\nLokty nebudeme tlačit úplně k tělu, protože tak bychom zapojili přednostně triceps. Lokty budeme tlačit lehce od těla.\r\nNohy nebudeme tlačit dopředu, abychom byli co nejrovnější, to by opět zapojilo přednostně tricepsy. Můžeme nechat tělo mírně v náklonu.\r\nVyskočíme nahoru, zpevníme se. S nádechem začneme klesat tak hluboko, jak nám to mobilita ramen dovolí a snažíme se soustředit na zapojení a protažení prsního svalstva.\r\nPo dosažení maximální hloubky bez porušení zpevnění těla začneme pomyslným tlakem loktů k tělu a soustředěním se na kontrakci hrudníku stoupat směrem vzhůru do startovní pozice.\r\nVáhu přidávejte s rozumem. Musíte mít nejprve vychytanou techniku. Neriskujte zbytečně poranění.\r\nČím více je hrudník během cvičení předkloněn, tím více se posilují dolní vlákna velkého svalu prsního. Naopak, čím svislejší je při pohybu poloha trupu, tím více se zapojuje trojhlavý sval pažní. Tento cvik je výborný na strečink velkého svalu prsního a pro zvyšování ohebnosti pletence ramenního, nehodí se však pro začátečníky, protože vyžaduje jistou dávku síly. Za účelem dosažení větší síly a objemu svalů si zdatní jedinci mohou na břicho připnout opasek s přídatnou zátěží, popřípadě na nohy dodatečná závaží.'),
-(3, 'Drep s výskokom', 'Postavíme se na šíři našich ramen a vytočíme špičky mírně směrem ven. \r\nPředpažíme, abychom usnadnili rozložení váhy a lépe drželi balanci. \r\nPohyb začneme provádět tak, že si pomyslně představíme lavičku kousek za námi a budeme si na ni chtít sednout. \r\nPohyb začne první vycházet pohybem hýždí směrem vzad. Mírně se začneme předklánět a po chvilce začneme klesat směrem dolu i s pokrčením v kolenou. Naše kyčle, kolena a celé tělo musí pracovat dohromady. \r\nJakmile dosáhneme spodní pozice, tak s výdechem obrátíme celý postup a pokusíme se vyskočit směrem vzhůru, jako kdybychom chtěli vyskočit na nějakou zídku a můžeme ve vzduchu i lehce přitáhnout kolena směrem vzhůru.\r\nMyslete na rovná záda, nepropadající se kolena ani kotníky. Pokuste se dopadnout do stejné pozice, ve které jsme startovali. Nespěchejte, znovu se srovnejte a pohyb vykonejte poctivě zcela od začátku.'),
-(4, 'Glute bridge', 'Lehneme si na záda, pokrčíme nohy přibližně do 90 stupňů. \r\nRuce jsou opřené o zem, stejně jako chodidla. Máme v nich pevnou podporu společně s vrchní částí našich zad. \r\nPohyb začne vycházet v kyčlích. Tlačíme je s výdechem směrem vzhůru do stropu tak vysoko, jak to jen půjde. \r\nAž se dostaneme do maximální pozice, hýždě zatneme a pohyb obrátíme s nádechem do původní pozice. \r\nOpakujeme podle počtu požadovaných opakování, v klidu s kontrolovaně, bez zbytečných škubavých pohybů.'),
-(5, 'Klasický klik', 'Zapojíme kromě prsou i triceps, ramena, stabilizační svalstvo, střed těla.\r\nDostaneme se do základní pozice kliku a začneme se srovnávat\r\nJsme opření o dlaně, dlaně jsou přibližně 5-10 cm dál než naše ramena. Lokty svírají s tělem přibližně 45 stupňový úhel.\r\nSesadíme a scvakneme lopatky směrem k sobě, abychom stabilizovali vršek těla, měli ramena ve zdravé pozici a vystavili hrudník k práci. Za žádných okolností nebudeme tuto pozici uvolňovat a dokončovat část pohybu na úkor posunutí ramen.\r\nZpevníme břišní svalstvo a budeme v neutrální pozici. Nebudeme ohlí ani prohlí.\r\nZatneme hýždě a stehna. Tím stabilizujeme i zbytek těla a pomůže nám to držet pevnou a stabilní polohu těla.\r\nS nádechem začneme pomalu klesat směrem k zemi až do protažení prsních svalů. V této pozici můžeme půl sekundy setrvat. S výdechem a s pomyslným tlačením loktů směrem k sobě začneme stoupat směrem od země do původní polohy, kde opět můžeme na půl sekundy zůstat a prsní svalstvo zatnout\r\nSnažíme se zapojit prsní svalstvo. Představujeme si jeho práci.'),
-(6, 'Klik na kolenách', 'Méně náročná varianta klasického kliku. Zapojení svalů je podobné. Nebude tak těžké udržet stabilitu těla.\r\nZapojíme kromě prsou i triceps, ramena, stabilizační svalstvo, střed těla.\r\nDostaneme se do základní pozice kliku a začneme se srovnávat s dlaněmi a koleny na zemi.\r\nJsme opření o dlaně, dlaně jsou přibližně 5-10 cm dál než naše ramena. Lokty svírají s tělem přibližně 45 stupňový úhel.\r\nSesadíme a scvakneme lopatky směrem k sobě, abychom stabilizovali vršek těla, měli ramena ve zdravé pozici a vystavili hrudník k práci. Za žádných okolností nebudeme tuto pozici uvolňovat a dokončovat část pohybu na úkor posunutí ramen.\r\nZpevníme břišní svalstvo a budeme v neutrální pozici. Nebudeme ohlí ani prohlí.\r\nZatneme hýždě a stehna. Tím stabilizujeme i zbytek těla a pomůže nám to držet pevnou a stabilní polohu těla. Tato část bude oproti klasickému kliku jednodušší.\r\nS nádechem začneme pomalu klesat směrem k zemi až do protažení prsních svalů. V této pozici můžeme půl sekundy setrvat. S výdechem a s pomyslným tlačením loktů směrem k sobě začneme stoupat směrem od země do původní polohy, kde opět můžeme na půl sekundy zůstat a prsní svalstvo zatnout\r\nSnažíme se zapojit prsní svalstvo. Představujeme si jeho práci.'),
-(7, 'Klik na úzko', 'Srovnáme se do základní polohy kliku s lokty opřenými o hrudník a dlaněmi na šíři ramen. \r\nNejsme nijak prohlí ani prohlí. Máme zpevněné lopatky i celý spodek těla.\r\nS nádechem začneme klesat kontrolovaným tempem směrem k zemi. Zastavíme se pár centimetrů nad zemí, kde se na malou chvíli zastavíme a potom s výdechem vystartujeme zpátky do původní pozice. \r\nSoustřeďte se na vykonávání celého pohybu za pomocí tricepsů. Dole budou protažené a ve vrchní části pohybu je pořádně zatneme.\r\nOpakujeme podle počtu požadovaných opakování'),
-(8, 'Klik s nohami na lavičke', 'Těžší varianta oproti klasickému kliku. Přesuneme větší nápor na vršek hrudníku a ramena, což bývají malinko slabší části. Méně zapojíme spodek hrudníku.\r\nZapojíme kromě prsou i triceps, ramena, stabilizační svalstvo a střed těla.\r\nDostaneme se do základní pozice kliku a začneme se srovnávat dlaněmi na zemi a s nohami na lavičce.\r\nJsme opření o dlaně, dlaně jsou přibližně 5-10 cm dál než naše ramena. Lokty svírají s tělem přibližně 45 stupňový úhel.\r\nSesadíme a scvakneme lopatky směrem k sobě, abychom stabilizovali vršek těla, měli ramena ve zdravé pozici a vystavili hrudník k práci. Za žádných okolností nebudeme tuto pozici uvolňovat a dokončovat část pohybu na úkor posunutí ramen.\r\nZpevníme břišní svalstvo a budeme v neutrální pozici. Nebudeme ohlí ani prohlí.\r\nZatneme hýždě a stehna. Tím stabilizujeme i zbytek těla a pomůže nám to držet pevnou a stabilní polohu těla.\r\nS nádechem začneme pomalu klesat směrem k zemi až do protažení prsních svalů. V této pozici můžeme půl sekundy setrvat. S výdechem a s pomyslným tlačením loktů směrem k sobě začneme stoupat směrem od země do původní polohy, kde opět můžeme na půl sekundy zůstat a prsní svalstvo zatnout\r\nSnažíme se zapojit prsní svalstvo. Představujeme si jeho práci.'),
-(9, 'Plank na lakťoch', 'Mírně pokročilá varianta planku. Zaujmeme polohu kliku, avšak s opřením na loktech. Tato verze je náročnější než základní pozice v kliku.\r\nZpevníme celou postavu. Zatneme břicho, hýždě a spodní záda. Celé tělo udržujeme v rovné linii. Neprohýbáme se ani směrem dolu, ani směrem nahoru. Snažíme se naučit tělo stabilizovat pouze ve správné pozici.\r\nPohled směřujeme do země tak, aby hlava byla v prodloužení páteře. Nedíváme se ani dopředu, ani příliš do země.\r\nV této pozici setrváme dle dispozic jedince v rozmezí 15 až 30 sekund.\r\nPokud je cvik pro vás lehký, je možné, aby vám sparing partner přidal závaží na oblast pánve.\r\nSprávným provedením tohoto cvičení zpevňujeme střed těla a tím pádem potenciálně zlepšujeme výkony u komplexních cviků jako jsou mrtvé tahy, dřepy a tlaky. Zároveň můžeme odstranit bolesti v této oblasti.\r\nNesnažte se posouvat na vyšší level plankových pozic, pokud nezvládáte techniku klasického planku. Výsledek takových pokusů je vám většinou akorát na škodu pro vaše zdraví.'),
-(10, 'Superman', 'Lehneme si na břicho, nohy máme pár centimetrů od sebe a ruce natažené směrem dopředu. Vše leží na zemi. Pohled směruje vpřed.\r\nS výdechem zvedneme nohy pár centimetrů do vzduchu, současně s tím i naše ruce. Ruce se snažíme tlačit i mírně dopředu.\r\nVe zvednuté pozici zůstaneme na 2-3 sekund a potom ses nádechem vracíme do původní polohy na zem.\r\nSnažte se cvik vykonávat pomalu, kontrolovaně a opravdu dávejte důraz na podržení zvednuté pozici. '),
-(11, 'Výpady vzad', 'Postavíme se na šíři našich ramen a zúžíme ho o 10 cm. Stojíme pěkně rovně.\r\nPohyb začneme provádět tak, že si pomyslně představíme něco na naší botě a chceme se k tomu dostat. Pohyb začne první vycházet pohybem hýždí směrem vzad, následně se začneme předklánět a jednou nohou začneme zakročovat směrem vzad.\r\nTím začneme klesat až do spodní pozice. Po dosažení spodní pozice celý pohyb obrátíme a dostaneme se do původní pozice. Kde můžeme nohu, na které celou dobu stojíme pořádně zatnout. Můžete opakovat pořád na stejnou stranu a nebo strany střídat.\r\nMyslete na rovná záda, nepropadající se kolena ani kotníky. Pokuste se dostat do stejné pozice, ve které jsme startovali.'),
-(12, 'Sumo drepy', 'Sumo dřep začínáš ve stoje\r\nzpevni záda a břicho, hlava je vzpřímená a pohled míří dopředu\r\nnohy dej od sebe. Šířka rozestupu je víc jak šířka ramen.\r\nšpičky chodidel vytoč mírně ven\r\nPOHYB DOLE: pánev směřuje dolů k podložce\r\nruce jsou volně podél těla\r\npři pohybu dolů se nadechuješ\r\nnejnižší poloha je, když jsou stehna rovnoběžně s podložkou. Správně zvolený rozestup ti nedovolí jít s pánvi níže.\r\nPOHYB HORE: z nejnižší polohy jdi nahoru opět do základní pozice\r\npři pohybu nahoru pokrč ruce a sepni je v úrovni hrudníku\r\npři pohybu nahoru vydechuj'),
-(13, 'Výpady', 'Postavte sa rovno, vystrite chrbát a urobte jednou nohou krok vpred. Nohy by spolu so zemou mali tvoriť trojuholník. Každá noha by so zemou mala zvierať uhol približne o veľkosti 45°.\r\nPokľaknite si zadnou nohou k zemi tak, aby vaše predné koleno dosiahlo úroveň prstov na nohe. Nemusíte sa však báť, ak presiahnete úroveň prstov, je to otázka flexibility nášho tela.\r\nPamätajte, že pokľaknutie by nemalo byť úplné. Koleno zadnej nohy by sa nemalo dotknúť zeme. Môžete ho mierne zohnúť. Pri správnej technike by ste mali pocítiť kvadricepsy na zadnej nohe. V spodnej polohe by mali byť obe kolená zohnuté približne do 90° uhlu.\r\nZdvihnite sa na päte prednej nohy a urobte krok vzad – dostanete sa tak do pôvodnej polohy, v akej ste začínali. Mali by ste cítiť gluteály a kvadricepsy. Nezabudnite vždy precvičiť aj druhú nohu.'),
-(14, 'Skracovačky', 'Ľahnite si na chrbát. Prekrížte si ruky na hrudníku a nohy majte pokrčené v kolenách a chodidlá na zemi. Vykonajte kontrakciu brušných svalov tak, aby sa trup \"zbalil\" smerom dopredu. Pohyb vykonávajte iba minimálny, vychádzajúci hlavne z brucha. Nikdy sa nesnažte pohyb vykonávať švihom. Snažte sa lopatky zdvíhať pomaly a maximálne kontrahujte brušné svaly.'),
-(15, 'Zhyby podhmatom', 'Pozdvihneme sa a podhmatom uchopíme hrazdu tak, že ruky sú od seba vzdialené menej ako je šírka ramien. Nohy zdvihneme z podlahy a pre lepší balans ich pokrčíme v kolenách. Pri počiatočnej polohe na hrazde visíme s vystretými rukami. Následne sa zdvíhame hore tak, že k hrazde približujeme hrudník, ktorý počas pohybu vypíname vpred. V chrbát sa prehýbame vzad a do vrchnej pozície dorazíme vtedy, ak je brada aspoň na úrovni hrazdy. Potom sa môžeme pomaly spustiť do počiatočnej pozície.');
-
-
-CREATE TABLE `faq` (
-  `IDotazka` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `faq` (
+  `IDotazka` int(11) NOT NULL AUTO_INCREMENT,
   `otazka` text COLLATE utf8mb4_slovak_ci NOT NULL,
-  `odpoved` text COLLATE utf8mb4_slovak_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
+  `odpoved` text COLLATE utf8mb4_slovak_ci NOT NULL,
+  PRIMARY KEY (`IDotazka`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
 INSERT INTO `faq` (`IDotazka`, `otazka`, `odpoved`) VALUES
 (1, 'Ako dlho by mal trvať tréning v posilňovni?', 'Samotná dĺžka tréningovej jednotky je závislá od mnohých faktorov. Aby ste budovali svaly, tréning môže trvať ľubovoľný čas v optimálnom rozmedzí 45 minút až 2 hodín. Vo všeobecnosti sa však odporúča nepresahovať jednu hodinu, pretože sa vtedy začína uvoľňovať stresový hormón kortizol, ktorý by mohol viesť ku katabolizmu. Ten predstavuje spaľovanie svalových buniek. \r\n\r\nCieľom posilňovania nie je vyčerpať srdcový sval, ale strategicky zničiť svalové vlákna odporom, ktorý predstavujú činky, stroje či gravitácia. Medzi sériami je vhodné oddychovať minútu až dve, aby ste dosiahli maximálny výkon v každej sérii. Ak sa snažíte spáliť tuky alebo zvýšiť kardiovaskulárnu kondíciu, efektívnymi technikami sú supersety, gigantické sety či kratšia prestávka – 30 až 45 sekúnd. Rovnako zložený tréning sa tak dá odcvičiť za dve hodiny alebo aj menej ako hodinu v závislosti od dĺžky prestávok.'),
@@ -88,39 +73,23 @@ INSERT INTO `faq` (`IDotazka`, `otazka`, `odpoved`) VALUES
 (4, 'Koľko jedál denne jesť? Optimálna frekvencia jedál', 'Existuje univerzálna alebo ak chcete optimálna frekvencia jedál? Ako to už vo svete fitness býva, je to bohužiaľ veľmi individuálne. Všeobecná príručka teda jednoducho neexistuje. Napriek tomu si dovolím tvrdiť, že existuje optimálna frekvencia jedál. Optimálna frekvencia je teda predovšetkým tá, ktorá najlepšie vyhovuje vášmu telu aj životnému štýlu.\r\n\r\nVždy musíte počúvať svoje telo a upraviť počet kalórií, počet jedál a ich zložky vášmu životnému štýlu, kalorickému výdaju alebo cieľom. Obézny človek, ktorý sa snaží schudnúť, má teda úplne iný režim ako športovec, ktorý sa pripravuje na kulturistickú súťaž.'),
 (5, 'Môžem sa predávkovať kreatínom?', 'Kreatín je bezpečná látka, ktorej sa zdraví ľudia nemusia obávať. Napriek tomu je možné, že pri nadmernom dávkovaní (rovnako ako pri iných látkach) môže spôsobiť niektoré negatívne účinky. Nemusíte sa však obávať žiadnych vážnych problémov, pretože tie zahŕňajú najmä tráviace problémy a prípadne svalové kŕče. Maximálna denná dávka kreatínu neexistuje, ale ak sa budete riadiť zdravým rozumom a odporúčaniami výrobcu, nemusíte sa ničoho obávať. Niektorí ľudia môžu mať problémy s takzvanou nasycovacou fázou, počas ktorej sa používajú vyššie dávky kreatínu, ale tejto fáze sa dá ľahko vyhnúť. A ak vám kreatín monohydrát nerobí dobre, vyskúšajte kreatín vo forme hydrochloridu, ktorý je v tomto ohľade oveľa šetrnejší.\r\n\r\nDôležité je uvedomiť si, že nadmerný príjem kreatínu nie je v skutočnosti prospešný, takže užívanie vyšších dávok nemá zmysel.');
 
-
-CREATE TABLE `ingrediencie` (
-  `IDingrediencie` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ingrediencie` (
+  `IDingrediencie` int(11) NOT NULL AUTO_INCREMENT,
   `IDrecept` int(11) NOT NULL,
   `ingrediencia` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
-  `gramaz` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
+  `gramaz` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
+  PRIMARY KEY (`IDingrediencie`),
+  KEY `IDrecept` (`IDrecept`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
+
+CREATE TABLE IF NOT EXISTS `ponukanesluzby` (
+  `IDsluzba` int(11) NOT NULL AUTO_INCREMENT,
+  `nazovSluzby` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
+  PRIMARY KEY (`IDsluzba`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
-
-INSERT INTO `ingrediencie` (`IDingrediencie`, `IDrecept`, `ingrediencia`, `gramaz`) VALUES
-(1, 1, 'Špagety', '500g'),
-(2, 1, 'Vajcia', '1ks'),
-(3, 1, 'Strúhaný parmezán', '50g'),
-(4, 1, 'Mleté hovädzie mäso', '500g'),
-(5, 1, 'Mrkva', '1ks'),
-(6, 1, 'Cuketa', '1ks'),
-(7, 1, 'Cibuľa', '1ks'),
-(8, 1, 'Cesnak', '3 strúčiky'),
-(9, 1, 'Paradajky v plechovke', '800g'),
-(10, 1, 'Paradajkový pretlak', '1PL'),
-(11, 1, 'Trstinový cukor', '1ČL'),
-(13, 1, 'Olivový olej', '-'),
-(14, 1, 'Oregáno', '-');
-
-
-CREATE TABLE `ponukanesluzby` (
-  `IDsluzba` int(11) NOT NULL,
-  `nazovSluzby` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
-
-CREATE TABLE `potraviny` (
-  `IDpotravina` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `potraviny` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `nazovPotraviny` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
   `IDtyp` int(11) NOT NULL,
   `imagePotravina` text COLLATE utf8mb4_slovak_ci NOT NULL,
@@ -132,11 +101,12 @@ CREATE TABLE `potraviny` (
   `horcik` float NOT NULL,
   `fosfor` float NOT NULL,
   `vapnik` float NOT NULL,
-  `sodik` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
+  `sodik` float NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDtyp` (`IDtyp`)
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
-
-INSERT INTO `potraviny` (`IDpotravina`, `nazovPotraviny`, `IDtyp`, `imagePotravina`, `kalorie`, `bielkoviny`, `sacharidy`, `tuky`, `draslik`, `horcik`, `fosfor`, `vapnik`, `sodik`) VALUES
+INSERT INTO `potraviny` (`ID`, `nazovPotraviny`, `IDtyp`, `imagePotravina`, `kalorie`, `bielkoviny`, `sacharidy`, `tuky`, `draslik`, `horcik`, `fosfor`, `vapnik`, `sodik`) VALUES
 (0, 'Egreše', 1, './media/gooseberries-potravina.jpg', 49, 0.82, 10, 0.2, 19.8, 1, 2.7, 2.5, 0.1),
 (1, 'Avokádo', 1, './media/avocado-potravina.jpg', 159, 1.6, 6, 13.1, 48.5, 2.9, 8.2, 1.4, 0.7),
 (2, 'Mrkva', 2, './media/carrot-potravina.jpg', 35, 1, 7.34, 0.22, 21.8, 0.7, 2.3, 4.5, 3.5),
@@ -188,13 +158,12 @@ INSERT INTO `potraviny` (`IDpotravina`, `nazovPotraviny`, `IDtyp`, `imagePotravi
 (49, 'Rukola', 2, './media/arugula-potravina.jpg', 25, 2.58, 3.65, 0.66, 36.9, 4.7, 5.2, 16, 2.7),
 (50, 'Uhorka šalátová', 2, './media/cucumber-potravina.jpg', 16, 0.65, 3.63, 0.11, 14.7, 1.3, 2.4, 1.6, 0.2),
 (51, 'Ľadový šalát', 2, './media/salad-potravina.jpg', 23, 2.9, 3.6, 0.4, 55.8, 7.9, 0, 9.9, 7.9),
-(52, 'Zemiaky', 2, './media/potato-potravina.jpg', 23, 3, 17, 0.3, 56, 2.2, 5, 1, 3.1),
+(52, 'Zemiaky', 2, 'media/potato-potravina.jpg', 23, 3, 17, 0.3, 56, 2.2, 5, 1, 3.1),
 (53, 'Cesnak', 2, './media/garlic-potravina.jpg', 163, 6, 32, 0.6, 40, 24, 15.1, 18, 0),
 (54, 'Paprika červená', 2, './media/paprika-red-potravina.jpg', 27, 0.9, 4.64, 0.13, 21.3, 1.1, 2.7, 0.6, 0.3);
 
-
-CREATE TABLE `recepty` (
-  `IDrecept` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `recepty` (
+  `IDrecept` int(11) NOT NULL AUTO_INCREMENT,
   `recept` varchar(100) COLLATE utf8mb4_slovak_ci NOT NULL,
   `obtiaznost` int(11) NOT NULL,
   `cas` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
@@ -203,43 +172,15 @@ CREATE TABLE `recepty` (
   `kalorie` int(11) NOT NULL,
   `bielkoviny` float NOT NULL,
   `sacharidy` float NOT NULL,
-  `tuky` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
+  `tuky` float NOT NULL,
+  PRIMARY KEY (`IDrecept`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
-
-INSERT INTO `recepty` (`IDrecept`, `recept`, `obtiaznost`, `cas`, `postup`, `image`, `kalorie`, `bielkoviny`, `sacharidy`, `tuky`) VALUES
-(1, 'Mäsové guľky v paradajkovej omáčke so špagetami', 4, '60 minút', 'Mäsové guľky - Jednoducho všetky suroviny zmiešame v miske rukami dokiaľ sa všetky suroviny pekne neprepoja.  Zo zmesi vytvoríme menšie guľky a poukladáme na tanier. Paradajková omáčka - Na väčšej a hlbšej panvici si rozohrejeme olivový olej, pridáme najemno nakrájaný cesnak, cibuľu, nastrúhanú cukinu a miešame približne 5 minút. Potom pridáme nakrájané paradajky, paradajkový pretlak, trstinový cukor, dochutíme korením, čerstvou bazalkou, soľou a miešame. Omáčku necháme mierne bublať. Vedľa v ďalšej panvici rozohrejeme olivový olej a mäsové guľky sprudka opečieme z každej strany. Následne ich premiestnime do omáčky a varíme v omáčke pod pokrievkou. Vždy po chvíľke mäsové guľky zľahka premiešame a polievame omáčkou. Dusíme približne 20 minút, dokiaľ masové guľky nie sú hotové. Špagety varíme podľa návodu domäkka, poprípade podľa vlastnej chute.', './media/masove-gulky-paradajkova-omacka-spagety-recept.jpg', 95, 5, 10, 4);
-
-
-CREATE TABLE `svalcvik` (
-  `IDcvik` int(11) NOT NULL,
-  `IDsval` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
-
-INSERT INTO `svalcvik` (`IDcvik`, `IDsval`) VALUES
-(1, 7),
-(2, 7),
-(3, 6),
-(4, 15),
-(5, 7),
-(6, 7),
-(7, 3),
-(8, 7),
-(9, 1),
-(10, 10),
-(11, 6),
-(12, 6),
-(13, 6),
-(14, 1),
-(15, 2);
-
-
-CREATE TABLE `svaly` (
-  `IDsval` int(11) NOT NULL,
-  `sval` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
+CREATE TABLE IF NOT EXISTS `svaly` (
+  `IDsval` int(11) NOT NULL AUTO_INCREMENT,
+  `sval` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
+  PRIMARY KEY (`IDsval`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
 INSERT INTO `svaly` (`IDsval`, `sval`) VALUES
 (1, 'Brušné svaly'),
@@ -258,12 +199,11 @@ INSERT INTO `svaly` (`IDsval`, `sval`) VALUES
 (14, 'Šikmé brušné svaly'),
 (15, 'Sedacie svaly');
 
-
-CREATE TABLE `typypotravin` (
-  `IDtyp` int(11) NOT NULL,
-  `typPotraviny` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
+CREATE TABLE IF NOT EXISTS `typypotravin` (
+  `IDtyp` int(11) NOT NULL AUTO_INCREMENT,
+  `typPotraviny` varchar(50) COLLATE utf8mb4_slovak_ci NOT NULL,
+  PRIMARY KEY (`IDtyp`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
 INSERT INTO `typypotravin` (`IDtyp`, `typPotraviny`) VALUES
 (1, 'Ovocie'),
@@ -276,12 +216,11 @@ INSERT INTO `typypotravin` (`IDtyp`, `typPotraviny`) VALUES
 (8, 'Strukoviny'),
 (9, 'Huby');
 
-
-CREATE TABLE `vybavenia` (
-  `IDvybavenie` int(11) NOT NULL,
-  `vybavenie` varchar(100) COLLATE utf8mb4_slovak_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
-
+CREATE TABLE IF NOT EXISTS `vybavenia` (
+  `IDvybavenie` int(11) NOT NULL AUTO_INCREMENT,
+  `vybavenie` varchar(100) COLLATE utf8mb4_slovak_ci NOT NULL,
+  PRIMARY KEY (`IDvybavenie`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
 INSERT INTO `vybavenia` (`IDvybavenie`, `vybavenie`) VALUES
 (1, 'Bez vybavenia'),
@@ -305,95 +244,17 @@ INSERT INTO `vybavenia` (`IDvybavenie`, `vybavenie`) VALUES
 (19, 'Závažie na telo');
 
 
-ALTER TABLE `balicek`
-  ADD PRIMARY KEY (`IDbalicek`);
-
-ALTER TABLE `baliceksluzby`
-  ADD PRIMARY KEY (`IDbalicek`,`IDsluzba`),
-  ADD KEY `IDsluzba` (`IDsluzba`);
-
-ALTER TABLE `cvikvybavenie`
-  ADD PRIMARY KEY (`IDcvik`,`IDvybavenie`),
-  ADD KEY `IDvybavenie` (`IDvybavenie`);
-
-ALTER TABLE `cviky`
-  ADD PRIMARY KEY (`IDcvik`);
-
-ALTER TABLE `faq`
-  ADD PRIMARY KEY (`IDotazka`);
-
-ALTER TABLE `ingrediencie`
-  ADD PRIMARY KEY (`IDingrediencie`),
-  ADD KEY `IDrecept` (`IDrecept`);
-
-ALTER TABLE `ponukanesluzby`
-  ADD PRIMARY KEY (`IDsluzba`);
-
-ALTER TABLE `potraviny`
-  ADD PRIMARY KEY (`IDpotravina`),
-  ADD KEY `IDtyp` (`IDtyp`);
-
-ALTER TABLE `recepty`
-  ADD PRIMARY KEY (`IDrecept`);
-
-ALTER TABLE `svalcvik`
-  ADD PRIMARY KEY (`IDcvik`,`IDsval`),
-  ADD KEY `IDsval` (`IDsval`);
-
-ALTER TABLE `svaly`
-  ADD PRIMARY KEY (`IDsval`);
-
-ALTER TABLE `typypotravin`
-  ADD PRIMARY KEY (`IDtyp`);
-
-ALTER TABLE `vybavenia`
-  ADD PRIMARY KEY (`IDvybavenie`);
-
-ALTER TABLE `balicek`
-  MODIFY `IDbalicek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
-ALTER TABLE `cviky`
-  MODIFY `IDcvik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
-ALTER TABLE `faq`
-  MODIFY `IDotazka` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
-ALTER TABLE `ingrediencie`
-  MODIFY `IDingrediencie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
-ALTER TABLE `ponukanesluzby`
-  MODIFY `IDsluzba` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `potraviny`
-  MODIFY `IDpotravina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
-
-ALTER TABLE `recepty`
-  MODIFY `IDrecept` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `svaly`
-  MODIFY `IDsval` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
-ALTER TABLE `typypotravin`
-  MODIFY `IDtyp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
-ALTER TABLE `vybavenia`
-  MODIFY `IDvybavenie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
 ALTER TABLE `baliceksluzby`
   ADD CONSTRAINT `baliceksluzby_ibfk_1` FOREIGN KEY (`IDbalicek`) REFERENCES `balicek` (`IDbalicek`),
   ADD CONSTRAINT `baliceksluzby_ibfk_2` FOREIGN KEY (`IDsluzba`) REFERENCES `ponukanesluzby` (`IDsluzba`);
 
-ALTER TABLE `cvikvybavenie`
-  ADD CONSTRAINT `cvikvybavenie_ibfk_1` FOREIGN KEY (`IDcvik`) REFERENCES `cviky` (`IDcvik`),
-  ADD CONSTRAINT `cvikvybavenie_ibfk_2` FOREIGN KEY (`IDvybavenie`) REFERENCES `vybavenia` (`IDvybavenie`);
+ALTER TABLE `cviky`
+  ADD CONSTRAINT `cviky_ibfk_1` FOREIGN KEY (`IDvybavenie`) REFERENCES `vybavenia` (`IDvybavenie`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cviky_ibfk_2` FOREIGN KEY (`IDsval`) REFERENCES `svaly` (`IDsval`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `ingrediencie`
-  ADD CONSTRAINT `ingrediencie_ibfk_1` FOREIGN KEY (`IDrecept`) REFERENCES `recepty` (`IDrecept`);
+  ADD CONSTRAINT `ingrediencie_ibfk_1` FOREIGN KEY (`IDrecept`) REFERENCES `recepty` (`IDrecept`) ON DELETE CASCADE;
 
 ALTER TABLE `potraviny`
   ADD CONSTRAINT `potraviny_ibfk_1` FOREIGN KEY (`IDtyp`) REFERENCES `typypotravin` (`IDtyp`);
-
-ALTER TABLE `svalcvik`
-  ADD CONSTRAINT `svalcvik_ibfk_1` FOREIGN KEY (`IDcvik`) REFERENCES `cviky` (`IDcvik`),
-  ADD CONSTRAINT `svalcvik_ibfk_2` FOREIGN KEY (`IDsval`) REFERENCES `svaly` (`IDsval`);
 COMMIT;

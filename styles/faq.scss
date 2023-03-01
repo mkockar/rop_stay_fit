@@ -8,9 +8,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .add-button {
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      img {
+        width: 5rem;
+        transition: 0.5s;
+      }
+      span {
+        color: $lightgray;
+      }
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
   .faq {
-    max-width: 80%;
-    //margin-top: 2rem;
+    width: 80%;
     padding: 2rem;
     border-bottom: 2px solid $outline;
     cursor: pointer;
@@ -24,13 +44,28 @@
       .title {
         font-size: 4rem;
         color: $lightgray;
-        transition: color .5s;
+        transition: color 0.5s;
       }
 
-      svg {
-        transition: transform 0.5s ease-in;
-        path{
+      .admin-buttons {
+        a {
+          text-decoration: none;
+          img {
+            width: 5rem;
+            transition: 0.5s;
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+
+      .arrow {
+        svg {
+          transition: transform 0.5s ease-in;
+          path {
             transition: stroke 0.5s ease-out;
+          }
         }
       }
     }
@@ -50,16 +85,16 @@
 
     &.active {
       .question {
-        .title{
-            color: $outline;
-            transition: color .7s;
+        .title {
+          color: $outline;
+          transition: color 0.7s;
         }
         svg {
           transform: rotate(180deg);
-            path{
-                stroke: $outline;
-                transition: .7s ease-in;
-            }
+          path {
+            stroke: $outline;
+            transition: 0.7s ease-in;
+          }
         }
       }
       .answer {
@@ -69,14 +104,14 @@
         //animation: fade 1s ease-in-out;
       }
     }
+
+    &:hover {
+      .question {
+        .title {
+          color: $outline;
+          transition: 0.5s;
+        }
+      }
+    }
   }
 }
-
-// @keyframes fade {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }

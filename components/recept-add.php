@@ -1,8 +1,8 @@
     <main>
-        <div class="back-button">
+        <a href="recepty.php" class="back-button">
             <img src="./media/icons/back-arrow.png" alt="">
-            <a href="recepty.php">SPÄŤ NA ZOZNAM RECEPTOV</a>
-        </div>
+            <span>SPÄŤ NA ZOZNAM RECEPTOV</span>
+        </a>
         <div class="header">
             <h1>PRIDAJ RECEPT</h1>
             <div class="underline"></div>
