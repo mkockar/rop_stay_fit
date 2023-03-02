@@ -192,8 +192,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       <div class="cards-services">
         <form action="payment.php" method="post">
+          <img src="./media/recepty-services-background.jpg" alt="" class="background-image">
           <div class="card">
-            <img src="" alt="" class="background">
             <div class="inside">
               <div class="content">
                 <div class="icon">
@@ -203,10 +203,15 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <h1>JEDÁLNIČEK NA MIERU</h1>
                   <div class="price">75€</div>
                 </div>
-                <div class="button">
-                  <input type="text" name="product" value="Jedálniček na mieru" hidden>
-                  <input type="text" name="price" value="75€" hidden>
-                  <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                <div class="top-popup">
+                  <span class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptates doloremque, commodi necessitatibus repellat suscipit consequuntur enim unde corporis esse facilis repellendus aliquid cupiditate hic officiis, voluptate nam blanditiis. Repellat?
+                  </span>
+                  <div class="button">
+                    <input type="text" name="product" value="Jedálniček na mieru" hidden>
+                    <input type="text" name="price" value="75€" hidden>
+                    <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                  </div>
                 </div>
               </div>
             </div>
@@ -214,8 +219,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </form>
 
         <form action="payment.php" method="post">
+          <img src="./media/recepty-services-background.jpg" alt="" class="background-image">
           <div class="card">
-            <img src="" alt="" class="background">
             <div class="inside">
               <div class="content">
                 <div class="icon">
@@ -225,10 +230,15 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <h1>JEDNORAZOVÝ TRÉNING</h1>
                   <div class="price">40€</div>
                 </div>
-                <div class="button">
-                  <input type="text" name="product" value="Jednorazový tréning" hidden>
-                  <input type="text" name="price" value="40€" hidden>
-                  <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                <div class="top-popup">
+                  <span class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptates doloremque, commodi necessitatibus repellat suscipit consequuntur enim unde corporis esse facilis repellendus aliquid cupiditate hic officiis, voluptate nam blanditiis. Repellat?
+                  </span>
+                  <div class="button">
+                    <input type="text" name="product" value="Jednorazový tréning" hidden>
+                    <input type="text" name="price" value="40€" hidden>
+                    <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                  </div>
                 </div>
               </div>
             </div>
@@ -236,8 +246,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </form>
 
         <form action="payment.php" method="post">
+          <img src="./media/recepty-services-background.jpg" alt="" class="background-image">
           <div class="card">
-            <img src="" alt="" class="background">
             <div class="inside">
               <div class="content">
                 <div class="icon">
@@ -247,10 +257,15 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <h1>KONZULTÁCIA</h1>
                   <div class="price">30€</div>
                 </div>
-                <div class="button">
-                  <input type="text" name="product" value="Konzultácia" hidden>
-                  <input type="text" name="price" value="30€" hidden>
-                  <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                <div class="top-popup">
+                  <span class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptates doloremque, commodi necessitatibus repellat suscipit consequuntur enim unde corporis esse facilis repellendus aliquid cupiditate hic officiis, voluptate nam blanditiis. Repellat?
+                  </span>
+                  <div class="button">
+                    <input type="text" name="product" value="Konzultácia" hidden>
+                    <input type="text" name="price" value="30€" hidden>
+                    <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                  </div>
                 </div>
               </div>
             </div>
@@ -258,8 +273,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </form>
 
         <form action="payment.php" method="post">
+          <img src="./media/recepty-services-background.jpg" alt="" class="background-image">
           <div class="card">
-            <img src="" alt="" class="background">
             <div class="inside">
               <div class="content">
                 <div class="icon">
@@ -269,10 +284,15 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <h1>FYZIOTERAPIA</h1>
                   <div class="price">40€</div>
                 </div>
-                <div class="button">
-                  <input type="text" name="product" value="Fyzioterapia" hidden>
-                  <input type="text" name="price" value="40€" hidden>
-                  <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                <div class="top-popup">
+                  <span class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptates doloremque, commodi necessitatibus repellat suscipit consequuntur enim unde corporis esse facilis repellendus aliquid cupiditate hic officiis, voluptate nam blanditiis. Repellat?
+                  </span>
+                  <div class="button">
+                    <input type="text" name="product" value="Fyzioterapia" hidden>
+                    <input type="text" name="price" value="40€" hidden>
+                    <input type="submit" name="submit" value="ZAKÚPIŤ" class="btn">
+                  </div>
                 </div>
               </div>
             </div>
