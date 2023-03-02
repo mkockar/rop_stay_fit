@@ -22,7 +22,6 @@
   justify-content: center;
   align-items: center;
   gap: 10rem;
-  max-width: 1300px;
 }
 .eshop .container .cards-membership .card,
 .eshop .container .cards-services .card {
@@ -62,6 +61,10 @@
   gap: 2rem;
   width: 100%;
 }
+.eshop .container .cards-membership .card .inside .content .icon,
+.eshop .container .cards-services .card .inside .content .icon {
+  transition: all 0.3s ease-in-out 0s;
+}
 .eshop .container .cards-membership .card .inside .content .icon img,
 .eshop .container .cards-services .card .inside .content .icon img {
   width: 6rem;
@@ -73,6 +76,7 @@
   justify-content: center;
   align-items: center;
   color: #e5e5e0;
+  transition: all 0.3s ease-in-out 0s;
 }
 .eshop .container .cards-membership .card .inside .content .name h1,
 .eshop .container .cards-services .card .inside .content .name h1 {
@@ -121,10 +125,6 @@
 .eshop .container .cards-membership .card .inside .content .list .button .btn,
 .eshop .container .cards-services .card .inside .content .list .button .btn {
   outline: solid #8dc63f;
-}
-.eshop .container .cards-membership .card:hover,
-.eshop .container .cards-services .card:hover {
-  transform: translateY(-0.5rem);
 }
 .eshop .container .cards-membership .card:hover .inside .top-strip,
 .eshop .container .cards-services .card:hover .inside .top-strip {
@@ -203,26 +203,65 @@
   .eshop .container .cards-services #platinum {
     transform: translateY(-5rem);
   }
-  .eshop .container .cards-membership #platinum:hover,
-  .eshop .container .cards-services #platinum:hover {
-    transform: translateY(-5.5rem);
-  }
 }
 .eshop .container .cards-services {
   display: flex;
   flex-basis: content;
   flex: 1 1 auto;
 }
-.eshop .container .cards-services .card {
+.eshop .container .cards-services form {
+  position: relative;
+  overflow: hidden;
+}
+.eshop .container .cards-services form .background-image {
+  width: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  border-radius: 5px;
+  outline: 1px solid #8dc63f;
+  filter: brightness(20%);
+}
+.eshop .container .cards-services form .card {
   padding: 3rem 2rem;
-  max-width: 600px;
-  min-width: 400px;
+  max-width: 500px;
+  min-width: 300px;
   height: 500px;
   flex-shrink: 50%;
 }
-.eshop .container .cards-services .card .button {
+.eshop .container .cards-services form .card .top-popup {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: all 0.3s ease-in-out 0s;
+  opacity: 0;
+}
+.eshop .container .cards-services form .card .top-popup .text {
+  color: #e5e5e0;
+  width: 100%;
+  font-size: 2.5rem;
+}
+.eshop .container .cards-services form .card .top-popup .button {
   width: 100%;
 }
-.eshop .container .cards-services .card .button .btn {
-  outline-color: #8dc63f;
+.eshop .container .cards-services form .card .top-popup .button .btn:hover {
+  scale: 1.05;
+}
+.eshop .container .cards-services form:hover .name,
+.eshop .container .cards-services form:hover .icon {
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+.eshop .container .cards-services form:hover .top-popup {
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transition: all 0.3s ease-in-out 0s;
 }

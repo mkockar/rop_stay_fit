@@ -24,7 +24,7 @@
       justify-content: center;
       align-items: center;
       gap: 10rem;
-      max-width: 1300px;
+      //max-width: 1300px;
       .card {
         display: flex;
         flex-direction: column;
@@ -57,6 +57,7 @@
             gap: 2rem;
             width: 100%;
             .icon {
+              transition: all 0.3s ease-in-out 0s;
               img {
                 width: 6rem;
               }
@@ -67,6 +68,7 @@
               justify-content: center;
               align-items: center;
               color: $lightgray;
+              transition: all 0.3s ease-in-out 0s;
               h1 {
                 text-align: center;
               }
@@ -111,9 +113,7 @@
             }
           }
         }
-
         &:hover {
-          transform: translateY(-0.5rem);
           .inside {
             .top-strip {
               opacity: 1;
@@ -226,28 +226,71 @@
       @media (min-width: 1250px) {
         #platinum {
           transform: translateY(-5rem);
-          &:hover {
-            transform: translateY(-5.5rem);
-          }
         }
       }
     }
 
-    .cards-services{
+    .cards-services {
       display: flex;
       flex-basis: content;
       flex: 1 1 auto;
-      .card{
-        padding: 3rem 2rem;
-        max-width: 600px;
-        min-width: 400px;
-        height: 500px;
-        flex-shrink: 50%;
-
-        .button{
+      form {
+        position: relative;
+        overflow: hidden;
+        .background-image {
           width: 100%;
-          .btn{
-            outline-color: $outline;
+          position: absolute;
+          object-fit: cover;
+          height: 100%;
+          border-radius: 5px;
+          outline: 1px solid $outline;
+          filter: brightness(20%);
+        }
+        .card {
+          padding: 3rem 2rem;
+          max-width: 500px;
+          min-width: 300px;
+          height: 500px;
+          flex-shrink: 50%;
+
+          .top-popup {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            transition: all 0.3s ease-in-out 0s;
+            opacity: 0;
+            .text {
+              color: $lightgray;
+              width: 100%;
+              font-size: 2.5rem;
+            }
+            .button {
+              width: 100%;
+              .btn {
+                &:hover {
+                  scale: 1.05;
+                }
+              }
+            }
+          }
+        }
+        &:hover {
+          .name,
+          .icon {
+            opacity: 0;
+            transition: all 0.3s ease-in-out 0s;
+          }
+          .top-popup {
+            top: 50%;
+            left: 50%;
+            opacity: 1;
+            transition: all 0.3s ease-in-out 0s;
           }
         }
       }
